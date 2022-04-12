@@ -11,7 +11,7 @@ ct = []
 
 for cell_type in cell_types:
 
-	ct.append (sum(ATAC_labels[cell_type].values)
+	ct.append (sum(ATAC_labels[cell_type].values))
 
 
 print(ct)
