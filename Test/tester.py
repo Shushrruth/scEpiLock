@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-data_dir = "/gpfs/gibbs/pi/girgenti/JZhang/commonData/scEpiLock/traning"
+data_dir = "/gpfs/gibbs/pi/girgenti/JZhang/commonData/scEpiLock/traning/"
 
 ATAC_labels = pd.read_csv(data_dir + "y-labels-positives.for-trainging.txt", header = 0, sep ='\t')
 
