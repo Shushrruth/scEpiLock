@@ -1,4 +1,4 @@
-import pandas as pandas
+import pandas as pd
 import numpy as np
 
 data_dir = "/gpfs/gibbs/pi/girgenti/JZhang/commonData/scEpiLock/traning"
