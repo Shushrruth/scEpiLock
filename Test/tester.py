@@ -28,4 +28,4 @@ plt.xlabel("Cell Type")
 plt.ylabel("Count")
 #plt.title("Data countsplit")
 
-plt.savefig('Test/test.png', bbox_inches='tight')
+plt.savefig('Test/test_slrum_check.png', bbox_inches='tight')
