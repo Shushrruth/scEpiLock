@@ -8,7 +8,7 @@
 #SBATCH --partition=gpu
 #
 module load miniconda
-conda activate ScEpilock
+conda activate scEpilock
 python3 Test/tester.py
 
 
