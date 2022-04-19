@@ -33,7 +33,7 @@ class Trainer:
 
     def train(self):
         """ train """
-        device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         model = self.model(self.n_class).to(device)
 
 
@@ -47,7 +47,7 @@ class Trainer:
 
 
         criterion = nn.BCEWithLogitsLoss()
-        optimizer = torch.optim.Adam(model.parameters(), lr=self._learning_rate, weight_decay=self._weight_decay, amsgrad=True)
+        optimizer = torch.optim.Adam(model.parameters(), lr=self._learning_rate, amsgrad=True)
 
         train_loader = torch.utils.data.DataLoader(self.train_data, batch_size=self._batch_size, shuffle=True)
         eval_loader = torch.utils.data.DataLoader(self.eval_data, batch_size=self._batch_size, shuffle=True)
@@ -59,7 +59,7 @@ class Trainer:
             # Train
             train_loss = 0.0
             train_acc = 0.0
-            print(epoch)
+            #print(epoch)
 
             model.train()  # set to train mode, use dropout and batchnorm ##
 

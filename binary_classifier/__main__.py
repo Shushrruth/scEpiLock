@@ -14,17 +14,17 @@ data_train, data_eval, data_test, label_train, label_eval, label_test = data_cla
 
 # Loading and one-hot-encoding
 
-train_data_loader = DataLoader(data_train, label_train)
+train_data_loader = DataLoader(data_train, label_train)[:100]
 eval_data_loader = DataLoader(data_eval, label_eval)
 
 
 
 # Trainer
 
-model_wt_path = "binary_classifier/result/weights/04-18-model.pt"
-epochs = 2
+model_wt_path = "/home/sss253/project/scEpiLock_weights/04-18-model_v2.pt"
+epochs = 25
 batch_size = 64
-learning_rate = 1e-4
+learning_rate = 5e-4
 weight_decay = 5e-4
 n_class = 7
 
