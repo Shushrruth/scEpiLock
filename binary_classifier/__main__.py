@@ -30,7 +30,7 @@ learning_rate = 5e-4
 weight_decay = 5e-4
 n_class = 7
 
-trainer = Trainer(train_data_loader[:100], eval_data_loader, model_wt_path, epochs, batch_size, 
+trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, batch_size, 
 	learning_rate, weight_decay, '_' , '/', n_class,scEpiLock)
 
 
