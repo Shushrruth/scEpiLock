@@ -30,4 +30,4 @@ n_class = 7
 trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, batch_size, 
 	learning_rate, weight_decay, '_' , '/', n_class,scEpiLock)
 
-trainer.train()
+#trainer.train()
