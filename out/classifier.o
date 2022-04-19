@@ -1,24 +1,53 @@
-0it [00:00, ?it/s]0it [00:00, ?it/s]
-Traceback (most recent call last):
-  File "/gpfs/ysm/project/girgenti/sss253/conda_envs/scEpilock/lib/python3.7/runpy.py", line 193, in _run_module_as_main
-    "__main__", mod_spec)
-  File "/gpfs/ysm/project/girgenti/sss253/conda_envs/scEpilock/lib/python3.7/runpy.py", line 85, in _run_code
-    exec(code, run_globals)
-  File "binary_classifier/__main__.py", line 38, in <module>
-    trainer.train()
-  File "binary_classifier/train/trainer.py", line 66, in train
-    for train_step, (X, y) in tqdm(enumerate(train_loader)):
-  File "/gpfs/ysm/project/girgenti/sss253/conda_envs/scEpilock/lib/python3.7/site-packages/tqdm/std.py", line 1166, in __iter__
-    for obj in iterable:
-  File "/gpfs/ysm/project/girgenti/sss253/conda_envs/scEpilock/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 435, in __next__
-    data = self._next_data()
-  File "/gpfs/ysm/project/girgenti/sss253/conda_envs/scEpilock/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 475, in _next_data
-    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
-  File "/gpfs/ysm/project/girgenti/sss253/conda_envs/scEpilock/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py", line 47, in fetch
-    return self.collate_fn(data)
-  File "/gpfs/ysm/project/girgenti/sss253/conda_envs/scEpilock/lib/python3.7/site-packages/torch/utils/data/_utils/collate.py", line 55, in default_collate
-    return torch.stack(batch, 0, out=out)
-RuntimeError: stack expects each tensor to be equal size, but got [4, 100] at entry 0 and [100, 7] at entry 1
+0it [00:00, ?it/s]1it [00:00,  1.94it/s]2it [00:00,  3.51it/s]3it [00:00,  4.79it/s]4it [00:00,  5.85it/s]5it [00:00,  6.67it/s]6it [00:01,  7.29it/s]7it [00:01,  7.74it/s]8it [00:01,  8.06it/s]9it [00:01,  8.30it/s]10it [00:01,  8.47it/s]11it [00:01,  8.59it/s]12it [00:01,  8.67it/s]13it [00:01,  8.74it/s]14it [00:01,  8.77it/s]15it [00:02,  8.80it/s]16it [00:02,  8.83it/s]17it [00:02,  8.84it/s]18it [00:02,  8.85it/s]19it [00:02,  8.85it/s]20it [00:02,  8.86it/s]20it [00:02,  7.48it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.60it/s]
+0it [00:00, ?it/s]1it [00:00,  8.87it/s]2it [00:00,  8.85it/s]3it [00:00,  8.87it/s]4it [00:00,  8.88it/s]5it [00:00,  8.87it/s]6it [00:00,  8.88it/s]7it [00:00,  8.87it/s]8it [00:00,  8.88it/s]9it [00:01,  8.87it/s]10it [00:01,  8.87it/s]11it [00:01,  8.88it/s]12it [00:01,  8.89it/s]13it [00:01,  8.84it/s]14it [00:01,  8.84it/s]15it [00:01,  8.85it/s]16it [00:01,  8.86it/s]17it [00:01,  8.86it/s]18it [00:02,  8.87it/s]19it [00:02,  8.86it/s]20it [00:02,  8.87it/s]20it [00:02,  8.86it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.72it/s]
+0it [00:00, ?it/s]1it [00:00,  8.91it/s]2it [00:00,  8.88it/s]3it [00:00,  8.86it/s]4it [00:00,  8.88it/s]5it [00:00,  8.87it/s]6it [00:00,  8.87it/s]7it [00:00,  8.87it/s]8it [00:00,  8.87it/s]9it [00:01,  8.87it/s]10it [00:01,  8.87it/s]11it [00:01,  8.88it/s]12it [00:01,  8.87it/s]13it [00:01,  8.87it/s]14it [00:01,  8.87it/s]15it [00:01,  8.86it/s]16it [00:01,  8.87it/s]17it [00:01,  8.87it/s]18it [00:02,  8.87it/s]19it [00:02,  8.87it/s]20it [00:02,  8.86it/s]20it [00:02,  8.87it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.78it/s]
+0it [00:00, ?it/s]1it [00:00,  8.91it/s]2it [00:00,  8.90it/s]3it [00:00,  8.88it/s]4it [00:00,  8.89it/s]5it [00:00,  8.87it/s]6it [00:00,  8.87it/s]7it [00:00,  8.87it/s]8it [00:00,  8.86it/s]9it [00:01,  8.86it/s]10it [00:01,  8.85it/s]11it [00:01,  8.85it/s]12it [00:01,  8.86it/s]13it [00:01,  8.86it/s]14it [00:01,  8.87it/s]15it [00:01,  8.86it/s]16it [00:01,  8.86it/s]17it [00:01,  8.86it/s]18it [00:02,  8.85it/s]19it [00:02,  8.85it/s]20it [00:02,  8.85it/s]20it [00:02,  8.86it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.61it/s]
+0it [00:00, ?it/s]1it [00:00,  8.83it/s]2it [00:00,  8.86it/s]3it [00:00,  8.86it/s]4it [00:00,  8.85it/s]5it [00:00,  8.85it/s]6it [00:00,  8.84it/s]7it [00:00,  8.84it/s]8it [00:00,  8.85it/s]9it [00:01,  8.84it/s]10it [00:01,  8.85it/s]11it [00:01,  8.84it/s]12it [00:01,  8.84it/s]13it [00:01,  8.85it/s]14it [00:01,  8.84it/s]15it [00:01,  8.84it/s]16it [00:01,  8.84it/s]17it [00:01,  8.84it/s]18it [00:02,  8.85it/s]19it [00:02,  8.84it/s]20it [00:02,  8.86it/s]20it [00:02,  8.85it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.53it/s]
+0it [00:00, ?it/s]1it [00:00,  8.84it/s]2it [00:00,  8.83it/s]3it [00:00,  8.83it/s]4it [00:00,  8.84it/s]5it [00:00,  8.84it/s]6it [00:00,  8.84it/s]7it [00:00,  8.83it/s]8it [00:00,  8.84it/s]9it [00:01,  8.84it/s]10it [00:01,  8.83it/s]11it [00:01,  8.85it/s]12it [00:01,  8.84it/s]13it [00:01,  8.84it/s]14it [00:01,  8.84it/s]15it [00:01,  8.84it/s]16it [00:01,  8.84it/s]17it [00:01,  8.84it/s]18it [00:02,  8.84it/s]19it [00:02,  8.85it/s]20it [00:02,  8.84it/s]20it [00:02,  8.84it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.60it/s]
+0it [00:00, ?it/s]1it [00:00,  8.88it/s]2it [00:00,  8.86it/s]3it [00:00,  8.85it/s]4it [00:00,  8.84it/s]5it [00:00,  8.85it/s]6it [00:00,  8.85it/s]7it [00:00,  8.85it/s]8it [00:00,  8.85it/s]9it [00:01,  8.85it/s]10it [00:01,  8.85it/s]11it [00:01,  8.80it/s]12it [00:01,  8.81it/s]13it [00:01,  8.82it/s]14it [00:01,  8.83it/s]15it [00:01,  8.84it/s]16it [00:01,  8.83it/s]17it [00:01,  8.83it/s]18it [00:02,  8.84it/s]19it [00:02,  8.83it/s]20it [00:02,  8.84it/s]20it [00:02,  8.84it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.65it/s]
+0it [00:00, ?it/s]1it [00:00,  8.87it/s]2it [00:00,  8.85it/s]3it [00:00,  8.84it/s]4it [00:00,  8.84it/s]5it [00:00,  8.84it/s]6it [00:00,  8.84it/s]7it [00:00,  8.83it/s]8it [00:00,  8.84it/s]9it [00:01,  8.84it/s]10it [00:01,  8.84it/s]11it [00:01,  8.85it/s]12it [00:01,  8.84it/s]13it [00:01,  8.84it/s]14it [00:01,  8.85it/s]15it [00:01,  8.84it/s]16it [00:01,  8.84it/s]17it [00:01,  8.85it/s]18it [00:02,  8.85it/s]19it [00:02,  8.86it/s]20it [00:02,  8.85it/s]20it [00:02,  8.84it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.47it/s]
+0it [00:00, ?it/s]1it [00:00,  8.84it/s]2it [00:00,  8.83it/s]3it [00:00,  8.84it/s]4it [00:00,  8.84it/s]5it [00:00,  8.83it/s]6it [00:00,  8.83it/s]7it [00:00,  8.83it/s]8it [00:00,  8.83it/s]9it [00:01,  8.84it/s]10it [00:01,  8.83it/s]11it [00:01,  8.83it/s]12it [00:01,  8.82it/s]13it [00:01,  8.82it/s]14it [00:01,  8.82it/s]15it [00:01,  8.83it/s]16it [00:01,  8.81it/s]17it [00:01,  8.80it/s]18it [00:02,  8.81it/s]19it [00:02,  8.82it/s]20it [00:02,  8.81it/s]20it [00:02,  8.82it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.54it/s]
+0it [00:00, ?it/s]1it [00:00,  8.86it/s]2it [00:00,  8.85it/s]3it [00:00,  8.84it/s]4it [00:00,  8.84it/s]5it [00:00,  8.83it/s]6it [00:00,  8.83it/s]7it [00:00,  8.83it/s]8it [00:00,  8.83it/s]9it [00:01,  8.83it/s]10it [00:01,  8.82it/s]11it [00:01,  8.82it/s]12it [00:01,  8.81it/s]13it [00:01,  8.82it/s]14it [00:01,  8.83it/s]15it [00:01,  8.82it/s]16it [00:01,  8.82it/s]17it [00:01,  8.84it/s]18it [00:02,  8.85it/s]19it [00:02,  8.84it/s]20it [00:02,  8.84it/s]20it [00:02,  8.83it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.27it/s]
+0it [00:00, ?it/s]1it [00:00,  8.86it/s]2it [00:00,  8.85it/s]3it [00:00,  8.85it/s]4it [00:00,  8.84it/s]5it [00:00,  8.84it/s]6it [00:00,  8.84it/s]7it [00:00,  8.83it/s]8it [00:00,  8.83it/s]9it [00:01,  8.82it/s]10it [00:01,  8.82it/s]11it [00:01,  8.84it/s]12it [00:01,  8.83it/s]13it [00:01,  8.83it/s]14it [00:01,  8.84it/s]15it [00:01,  8.84it/s]16it [00:01,  8.84it/s]17it [00:01,  8.85it/s]18it [00:02,  8.84it/s]19it [00:02,  8.83it/s]20it [00:02,  8.82it/s]20it [00:02,  8.83it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.44it/s]
+0it [00:00, ?it/s]1it [00:00,  8.83it/s]2it [00:00,  8.83it/s]3it [00:00,  8.81it/s]4it [00:00,  8.80it/s]5it [00:00,  8.81it/s]6it [00:00,  8.82it/s]7it [00:00,  8.83it/s]8it [00:00,  8.82it/s]9it [00:01,  8.82it/s]10it [00:01,  8.84it/s]11it [00:01,  8.83it/s]12it [00:01,  8.84it/s]13it [00:01,  8.84it/s]14it [00:01,  8.83it/s]15it [00:01,  8.84it/s]16it [00:01,  8.83it/s]17it [00:01,  8.84it/s]18it [00:02,  8.85it/s]19it [00:02,  8.84it/s]20it [00:02,  8.84it/s]20it [00:02,  8.83it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.64it/s]
+0it [00:00, ?it/s]1it [00:00,  8.83it/s]2it [00:00,  8.83it/s]3it [00:00,  8.81it/s]4it [00:00,  8.82it/s]5it [00:00,  8.82it/s]6it [00:00,  8.83it/s]7it [00:00,  8.83it/s]8it [00:00,  8.83it/s]9it [00:01,  8.83it/s]10it [00:01,  8.83it/s]11it [00:01,  8.83it/s]12it [00:01,  8.83it/s]13it [00:01,  8.83it/s]14it [00:01,  8.84it/s]15it [00:01,  8.84it/s]16it [00:01,  8.84it/s]17it [00:01,  8.83it/s]18it [00:02,  8.83it/s]19it [00:02,  8.83it/s]20it [00:02,  8.83it/s]20it [00:02,  8.83it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.56it/s]
+0it [00:00, ?it/s]1it [00:00,  8.82it/s]2it [00:00,  8.82it/s]3it [00:00,  8.81it/s]4it [00:00,  8.82it/s]5it [00:00,  8.83it/s]6it [00:00,  8.83it/s]7it [00:00,  8.83it/s]8it [00:00,  8.81it/s]9it [00:01,  8.81it/s]10it [00:01,  8.81it/s]11it [00:01,  8.80it/s]12it [00:01,  8.80it/s]13it [00:01,  8.81it/s]14it [00:01,  8.81it/s]15it [00:01,  8.81it/s]16it [00:01,  8.81it/s]17it [00:01,  8.80it/s]18it [00:02,  8.81it/s]19it [00:02,  8.80it/s]20it [00:02,  8.80it/s]20it [00:02,  8.81it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.52it/s]
+0it [00:00, ?it/s]1it [00:00,  8.81it/s]2it [00:00,  8.82it/s]3it [00:00,  8.81it/s]4it [00:00,  8.80it/s]5it [00:00,  8.80it/s]6it [00:00,  8.81it/s]7it [00:00,  8.81it/s]8it [00:00,  8.79it/s]9it [00:01,  8.80it/s]10it [00:01,  8.80it/s]11it [00:01,  8.81it/s]12it [00:01,  8.81it/s]13it [00:01,  8.80it/s]14it [00:01,  8.80it/s]15it [00:01,  8.81it/s]16it [00:01,  8.81it/s]17it [00:01,  8.81it/s]18it [00:02,  8.80it/s]19it [00:02,  8.80it/s]20it [00:02,  8.82it/s]20it [00:02,  8.81it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 20.15it/s]
+0it [00:00, ?it/s]1it [00:00,  8.83it/s]2it [00:00,  8.81it/s]3it [00:00,  8.82it/s]4it [00:00,  8.81it/s]5it [00:00,  8.81it/s]6it [00:00,  8.81it/s]7it [00:00,  8.81it/s]8it [00:00,  8.80it/s]9it [00:01,  8.80it/s]10it [00:01,  8.80it/s]11it [00:01,  8.81it/s]12it [00:01,  8.80it/s]13it [00:01,  8.80it/s]14it [00:01,  8.80it/s]15it [00:01,  8.80it/s]16it [00:01,  8.80it/s]17it [00:01,  8.80it/s]18it [00:02,  8.80it/s]19it [00:02,  8.80it/s]20it [00:02,  8.80it/s]20it [00:02,  8.80it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.60it/s]
+0it [00:00, ?it/s]1it [00:00,  8.82it/s]2it [00:00,  8.80it/s]3it [00:00,  8.80it/s]4it [00:00,  8.79it/s]5it [00:00,  8.80it/s]6it [00:00,  8.80it/s]7it [00:00,  8.80it/s]8it [00:00,  8.79it/s]9it [00:01,  8.79it/s]10it [00:01,  8.79it/s]11it [00:01,  8.79it/s]12it [00:01,  8.79it/s]13it [00:01,  8.81it/s]14it [00:01,  8.80it/s]15it [00:01,  8.80it/s]16it [00:01,  8.81it/s]17it [00:01,  8.80it/s]18it [00:02,  8.79it/s]19it [00:02,  8.79it/s]20it [00:02,  8.79it/s]20it [00:02,  8.80it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.64it/s]
+0it [00:00, ?it/s]1it [00:00,  8.84it/s]2it [00:00,  8.78it/s]3it [00:00,  8.79it/s]4it [00:00,  8.79it/s]5it [00:00,  8.80it/s]6it [00:00,  8.47it/s]7it [00:00,  8.58it/s]8it [00:00,  8.64it/s]9it [00:01,  8.68it/s]10it [00:01,  8.71it/s]11it [00:01,  8.73it/s]12it [00:01,  8.76it/s]13it [00:01,  8.78it/s]14it [00:01,  8.79it/s]15it [00:01,  8.81it/s]16it [00:01,  8.81it/s]17it [00:01,  8.80it/s]18it [00:02,  8.79it/s]19it [00:02,  8.79it/s]20it [00:02,  8.80it/s]20it [00:02,  8.75it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.49it/s]
+0it [00:00, ?it/s]1it [00:00,  8.80it/s]2it [00:00,  8.81it/s]3it [00:00,  8.82it/s]4it [00:00,  8.83it/s]5it [00:00,  8.82it/s]6it [00:00,  8.84it/s]7it [00:00,  8.81it/s]8it [00:00,  8.81it/s]9it [00:01,  8.82it/s]10it [00:01,  8.81it/s]11it [00:01,  8.81it/s]12it [00:01,  8.80it/s]13it [00:01,  8.80it/s]14it [00:01,  8.81it/s]15it [00:01,  8.80it/s]16it [00:01,  8.81it/s]17it [00:01,  8.80it/s]18it [00:02,  8.80it/s]19it [00:02,  8.80it/s]20it [00:02,  8.81it/s]20it [00:02,  8.81it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.42it/s]
+0it [00:00, ?it/s]1it [00:00,  8.81it/s]2it [00:00,  8.79it/s]3it [00:00,  8.79it/s]4it [00:00,  8.79it/s]5it [00:00,  8.79it/s]6it [00:00,  8.80it/s]7it [00:00,  8.79it/s]8it [00:00,  8.79it/s]9it [00:01,  8.82it/s]10it [00:01,  8.81it/s]11it [00:01,  8.81it/s]12it [00:01,  8.79it/s]13it [00:01,  8.79it/s]14it [00:01,  8.80it/s]15it [00:01,  8.80it/s]16it [00:01,  8.80it/s]17it [00:01,  8.80it/s]18it [00:02,  8.79it/s]19it [00:02,  8.80it/s]20it [00:02,  8.81it/s]20it [00:02,  8.80it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.53it/s]
+0it [00:00, ?it/s]1it [00:00,  8.79it/s]2it [00:00,  8.81it/s]3it [00:00,  8.82it/s]4it [00:00,  8.82it/s]5it [00:00,  8.81it/s]6it [00:00,  8.81it/s]7it [00:00,  8.80it/s]8it [00:00,  8.79it/s]9it [00:01,  8.78it/s]10it [00:01,  8.79it/s]11it [00:01,  8.80it/s]12it [00:01,  8.81it/s]13it [00:01,  8.81it/s]14it [00:01,  8.81it/s]15it [00:01,  8.80it/s]16it [00:01,  8.81it/s]17it [00:01,  8.79it/s]18it [00:02,  8.78it/s]19it [00:02,  8.80it/s]20it [00:02,  8.81it/s]20it [00:02,  8.80it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.59it/s]
+0it [00:00, ?it/s]1it [00:00,  8.83it/s]2it [00:00,  8.81it/s]3it [00:00,  8.81it/s]4it [00:00,  8.80it/s]5it [00:00,  8.79it/s]6it [00:00,  8.79it/s]7it [00:00,  8.79it/s]8it [00:00,  8.79it/s]9it [00:01,  8.78it/s]10it [00:01,  8.79it/s]11it [00:01,  8.81it/s]12it [00:01,  8.82it/s]13it [00:01,  8.81it/s]14it [00:01,  8.81it/s]15it [00:01,  8.81it/s]16it [00:01,  8.82it/s]17it [00:01,  8.80it/s]18it [00:02,  8.80it/s]19it [00:02,  8.81it/s]20it [00:02,  8.82it/s]20it [00:02,  8.80it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.50it/s]
+0it [00:00, ?it/s]1it [00:00,  8.79it/s]2it [00:00,  8.78it/s]3it [00:00,  8.79it/s]4it [00:00,  8.80it/s]5it [00:00,  8.79it/s]6it [00:00,  8.79it/s]7it [00:00,  8.78it/s]8it [00:00,  8.78it/s]9it [00:01,  8.78it/s]10it [00:01,  8.79it/s]11it [00:01,  8.81it/s]12it [00:01,  8.80it/s]13it [00:01,  8.82it/s]14it [00:01,  8.81it/s]15it [00:01,  8.80it/s]16it [00:01,  8.80it/s]17it [00:01,  8.78it/s]18it [00:02,  8.77it/s]19it [00:02,  8.78it/s]20it [00:02,  8.79it/s]20it [00:02,  8.79it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.34it/s]
+0it [00:00, ?it/s]1it [00:00,  8.65it/s]2it [00:00,  8.71it/s]3it [00:00,  8.75it/s]4it [00:00,  8.75it/s]5it [00:00,  8.75it/s]6it [00:00,  8.77it/s]7it [00:00,  8.76it/s]8it [00:00,  8.76it/s]9it [00:01,  8.77it/s]10it [00:01,  8.77it/s]11it [00:01,  8.79it/s]12it [00:01,  8.78it/s]13it [00:01,  8.77it/s]14it [00:01,  8.77it/s]15it [00:01,  8.77it/s]16it [00:01,  8.77it/s]17it [00:01,  8.76it/s]18it [00:02,  8.76it/s]19it [00:02,  8.76it/s]20it [00:02,  8.78it/s]20it [00:02,  8.76it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.31it/s]
+0it [00:00, ?it/s]1it [00:00,  8.76it/s]2it [00:00,  8.77it/s]3it [00:00,  8.77it/s]4it [00:00,  8.79it/s]5it [00:00,  8.77it/s]6it [00:00,  8.78it/s]7it [00:00,  8.78it/s]8it [00:00,  8.77it/s]9it [00:01,  8.79it/s]10it [00:01,  8.78it/s]11it [00:01,  8.79it/s]12it [00:01,  8.79it/s]13it [00:01,  8.78it/s]14it [00:01,  8.77it/s]15it [00:01,  8.78it/s]16it [00:01,  8.77it/s]17it [00:01,  8.76it/s]18it [00:02,  8.76it/s]19it [00:02,  8.75it/s]20it [00:02,  8.76it/s]20it [00:02,  8.77it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 22.42it/s]
 positive size =  (399457,)
 negative size =  (711878,)
 label size =  (399457, 7)
@@ -43,6 +72,106 @@ label size =  (399457, 7)
 -----------------shape after subset and add RC-------------
 (128,)
 (128, 7)
-train start time:  2022-04-19 01:29:29.160121
+train start time:  2022-04-19 01:32:47.615763
 Epoch 0/24
 ----------
+Epoch 0 train Loss: 0.6578 Acc: 0.6661
+Eval loss 0.5973239839076996
+Epoch 1/24
+----------
+Epoch 1 train Loss: 0.6019 Acc: 0.7147
+Eval loss 0.593801349401474
+Epoch 2/24
+----------
+Epoch 2 train Loss: 0.5942 Acc: 0.7147
+Eval loss 0.592736691236496
+Epoch 3/24
+----------
+Epoch 3 train Loss: 0.5913 Acc: 0.7147
+Eval loss 0.5843583047389984
+Epoch 4/24
+----------
+Epoch 4 train Loss: 0.5908 Acc: 0.7147
+Eval loss 0.5831159353256226
+Epoch 5/24
+----------
+Epoch 5 train Loss: 0.5980 Acc: 0.7150
+Eval loss 0.5874515473842621
+Epoch 6/24
+----------
+Epoch 6 train Loss: 0.5906 Acc: 0.7147
+Eval loss 0.5848647654056549
+Epoch 7/24
+----------
+Epoch 7 train Loss: 0.5943 Acc: 0.7148
+Eval loss 0.5911765396595001
+Epoch 8/24
+----------
+Epoch 8 train Loss: 0.5869 Acc: 0.7147
+Eval loss 0.5830354690551758
+Epoch 9/24
+----------
+Epoch 9 train Loss: 0.5861 Acc: 0.7147
+Eval loss 0.5827974677085876
+Epoch 10/24
+----------
+Epoch 10 train Loss: 0.5857 Acc: 0.7147
+Eval loss 0.5810309648513794
+Epoch 11/24
+----------
+Epoch 11 train Loss: 0.5874 Acc: 0.7147
+Eval loss 0.5810766518115997
+Epoch 12/24
+----------
+Epoch 12 train Loss: 0.5890 Acc: 0.7152
+Eval loss 0.5785177946090698
+Epoch 13/24
+----------
+Epoch 13 train Loss: 0.5873 Acc: 0.7155
+Eval loss 0.5885622203350067
+Epoch 14/24
+----------
+Epoch 14 train Loss: 0.5876 Acc: 0.7164
+Eval loss 0.5769546031951904
+Epoch 15/24
+----------
+Epoch 15 train Loss: 0.5832 Acc: 0.7188
+Eval loss 0.5782017409801483
+Epoch 16/24
+----------
+Epoch 16 train Loss: 0.5834 Acc: 0.7198
+Eval loss 0.5767911970615387
+Epoch 17/24
+----------
+Epoch 17 train Loss: 0.5806 Acc: 0.7222
+Eval loss 0.5745050013065338
+Epoch 18/24
+----------
+Epoch 18 train Loss: 0.5772 Acc: 0.7246
+Eval loss 0.5718457400798798
+Epoch 19/24
+----------
+Epoch 19 train Loss: 0.5765 Acc: 0.7285
+Eval loss 0.5751964449882507
+Epoch 20/24
+----------
+Epoch 20 train Loss: 0.5754 Acc: 0.7331
+Eval loss 0.5714196264743805
+Epoch 21/24
+----------
+Epoch 21 train Loss: 0.5728 Acc: 0.7319
+Eval loss 0.5751204192638397
+Epoch 22/24
+----------
+Epoch 22 train Loss: 0.5717 Acc: 0.7327
+Eval loss 0.5675880312919617
+Epoch 23/24
+----------
+Epoch 23 train Loss: 0.5669 Acc: 0.7407
+Eval loss 0.5740280449390411
+Epoch 24/24
+----------
+Epoch 24 train Loss: 0.5661 Acc: 0.7419
+Eval loss 0.5657297968864441
+done
+train end time:  2022-04-19 01:33:49.933441
