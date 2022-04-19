@@ -3,6 +3,7 @@ from data.data_loader import DataLoader
 from model.model import scEpiLock
 from train.trainer import Trainer 
 import torch
+from datetime import datetime
 
 #1 Reading and Processing and Loading the data 
 
@@ -21,7 +22,7 @@ eval_data_loader = DataLoader(data_eval, label_eval)
 # Trainer
 
 model_wt_path = "binary_classifier/result/weights/04-18-model.pt"
-epochs = 5
+epochs = 2
 batch_size = 64
 learning_rate = 1e-4
 weight_decay = 5e-4
@@ -30,4 +31,7 @@ n_class = 7
 trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, batch_size, 
 	learning_rate, weight_decay, '_' , '/', n_class,scEpiLock)
 
-#trainer.train()
+
+print("train start time: ", datetime.now())
+trainer.train()
+print("train end time: ", datetime.now())
