@@ -4,7 +4,7 @@ Traceback (most recent call last):
     "__main__", mod_spec)
   File "/gpfs/ysm/project/girgenti/sss253/conda_envs/scEpilock/lib/python3.7/runpy.py", line 85, in _run_code
     exec(code, run_globals)
-  File "binary_classifier/__main__.py", line 36, in <module>
+  File "binary_classifier/__main__.py", line 38, in <module>
     trainer.train()
   File "binary_classifier/train/trainer.py", line 66, in train
     for train_step, (X, y) in tqdm(enumerate(train_loader)):
@@ -32,17 +32,17 @@ label size =  (399457, 7)
 (39946,)
 (39946, 7)
 -----------------shape before add RC -------------
-(323559,)
-(323559, 7)
+(640,)
+(640, 7)
 -----------------shape after subset and add RC-------------
-(647118,)
-(647118, 7)
+(1280,)
+(1280, 7)
 -----------------shape before add RC -------------
-(35952,)
-(35952, 7)
+(64,)
+(64, 7)
 -----------------shape after subset and add RC-------------
-(71904,)
-(71904, 7)
-train start time:  2022-04-19 01:20:35.289492
+(128,)
+(128, 7)
+train start time:  2022-04-19 01:29:29.160121
 Epoch 0/24
 ----------
