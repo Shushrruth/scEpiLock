@@ -59,6 +59,7 @@ class Trainer:
             # Train
             train_loss = 0.0
             train_acc = 0.0
+            print(epoch)
 
             model.train()  # set to train mode, use dropout and batchnorm ##
 
@@ -124,5 +125,6 @@ class Trainer:
             if eval_loss < best_loss:
                 best_loss = eval_loss
                 best_model_wts = copy.deepcopy(model.state_dict())
+        print('done')
 
         torch.save(best_model_wts, self._model_path)
