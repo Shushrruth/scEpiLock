@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=train
-#SBATCH --time=10-
+#SBATCH --time=1-
 #SBATCH --gpus 2
 #SBATCH --cpus-per-task 8
 #SBATCH --mem 16G

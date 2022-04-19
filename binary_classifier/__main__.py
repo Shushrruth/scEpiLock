@@ -23,7 +23,7 @@ eval_data_loader = DataLoader(data_eval, label_eval)
 # Trainer
 
 model_wt_path = "/home/sss253/project/scEpiLock_weights/04-18-model_v2.pt"
-epochs = 25
+epochs = 30
 batch_size = 64
 learning_rate = 1e-3
 weight_decay = 5e-4
