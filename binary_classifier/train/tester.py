@@ -3,6 +3,7 @@ from sklearn.metrics import f1_score
 from sklearn.metrics import auc
 from matplotlib import pyplot
 from sklearn.metrics import roc_auc_score
+from sklearn.metrics import roc_curve
 import torch
 import torch.nn as nn
 from tqdm import tqdm

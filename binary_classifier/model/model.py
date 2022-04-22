@@ -141,4 +141,4 @@ class scEpiLock_Siam(nn.Module):
 
         out = (out1+out2)/2
 
-        return torch.sigmoid(out)
+        return out#torch.sigmoid(out)
