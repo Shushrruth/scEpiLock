@@ -101,26 +101,26 @@ class DataLoader_Siam(Dataset):
         #print(seq)
         for base in seq:
             if base == 'A' or base == 'a':
-                temp[row_index, 0] = 1
+                temp1[row_index, 0] = 1
             elif base == 'T' or base == 't':
-                temp[row_index, 1] = 1
+                temp1[row_index, 1] = 1
             elif base == 'G' or base == 'g':
-                temp[row_index, 2] = 1
+                temp1[row_index, 2] = 1
             elif base == 'C' or base == 'c':
-                temp[row_index, 3] = 1
+                temp1[row_index, 3] = 1
             row_index += 1
 
         temp2 = np.zeros((len(seq), 4))
         #print(seq)
         for base in rc_seq:
             if base == 'A' or base == 'a':
-                temp[row_index, 0] = 1
+                temp2[row_index, 0] = 1
             elif base == 'T' or base == 't':
-                temp[row_index, 1] = 1
+                temp2[row_index, 1] = 1
             elif base == 'G' or base == 'g':
-                temp[row_index, 2] = 1
+                temp2[row_index, 2] = 1
             elif base == 'C' or base == 'c':
-                temp[row_index, 3] = 1
+                temp2[row_index, 3] = 1
             row_index += 1
 
         X1 = torch.tensor(temp1).float().permute(1,0) # change the dim to 4, 1000
