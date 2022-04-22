@@ -1,8 +1,8 @@
 from data.data_processor import PreProcessor
 from data.data_loader import DataLoader, DataLoader_Siam
 from model.model import scEpiLock, scEpiLock_Siam
-from train.trainer import Trainer 
-from test.test import Tester 
+from train.trainer import Trainer
+from train.tester import Tester 
 import torch
 from datetime import datetime
 
