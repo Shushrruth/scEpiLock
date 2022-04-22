@@ -47,8 +47,12 @@ test_out_dir = '/home/sss253/project/scEpiLock/binary_classifier/result/plots/'
 tester = Tester(scEpiLock_Siam, model_wt_path, test_data_loader, batch_size, n_class)
 y_true, y_pred = tester.test()
 print('testing done')
+print('y_true')
+print(y_true)
+print('y_pred')
+print(y_pred)
 
-Tester.plot_prc_curve(y_true,y_pred,test_out_dir+'PRC_plot.png')
-Tester.plot_roc_curve(y_true,y_pred,test_out_dir+'ROC_plot.png')
+Tester.plot_prc_curve(torch.flatten(y_true),torch.flatten(y_pred),test_out_dir+'PRC_plot.png')
+Tester.plot_roc_curve(torch.flatten(y_true),torch.flatten(y_pred),test_out_dir+'ROC_plot.png')
 
 
