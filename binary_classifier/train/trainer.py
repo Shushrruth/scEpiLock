@@ -63,7 +63,7 @@ class Trainer:
 
             model.train()  # set to train mode, use dropout and batchnorm ##
 
-            for train_step, (X, y) in tqdm(enumerate(train_loader)):
+            for train_step, (X, y) in enumerate(train_loader):
 
                 X = X.to(device)
                 y = y.to(device)
@@ -100,7 +100,7 @@ class Trainer:
 
             model.eval() 
             with torch.no_grad(): 
-                for X, y in tqdm(eval_loader):
+                for X, y in eval_loader:
                     optimizer.zero_grad() 
                     X, y = X.to(device), y.to(device)
                     y_pred_logit = model(X.float())
