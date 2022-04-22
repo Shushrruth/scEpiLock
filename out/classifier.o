@@ -1,4 +1,4 @@
-  0%|          | 0/625 [00:00<?, ?it/s]  0%|          | 0/625 [00:03<?, ?it/s]
+  0%|          | 0/625 [00:00<?, ?it/s]  0%|          | 0/625 [00:00<?, ?it/s]
 Traceback (most recent call last):
   File "/gpfs/ysm/project/girgenti/sss253/conda_envs/scEpilock/lib/python3.7/runpy.py", line 193, in _run_module_as_main
     "__main__", mod_spec)
@@ -6,13 +6,9 @@ Traceback (most recent call last):
     exec(code, run_globals)
   File "binary_classifier/__main__.py", line 48, in <module>
     y_true, y_pred = tester.test()
-  File "binary_classifier/train/tester.py", line 45, in test
-    output = model(X1.float(), X2.float())
-  File "/gpfs/ysm/project/girgenti/sss253/conda_envs/scEpilock/lib/python3.7/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
-    result = self.forward(*input, **kwargs)
-  File "binary_classifier/model/model.py", line 143, in forward
-    return torch.sigmoid(out)
-NameError: name 'torch' is not defined
+  File "binary_classifier/train/tester.py", line 47, in test
+    y_hat = outputs
+NameError: name 'outputs' is not defined
 positive size =  (399457,)
 negative size =  (711878,)
 label size =  (399457, 7)
@@ -28,5 +24,5 @@ label size =  (399457, 7)
 -----------------shape before add RC -------------
 (39946,)
 (39946, 7)
-train start time:  2022-04-21 21:18:43.592920
-train end time:  2022-04-21 21:18:43.592942
+train start time:  2022-04-21 21:26:13.595076
+train end time:  2022-04-21 21:26:13.595097
