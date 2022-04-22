@@ -32,9 +32,9 @@ class Tester():
 
         test_loss = 0
         correct = 0
-        y_pred = []
-        y_true = []
-        y_proba = []
+        y_pred = np.empty((0, self.n_class))
+        y_true = np.empty((0, self.n_class))
+        y_proba = np.empty((0, self.n_class))
         model.eval() 
 
         with torch.no_grad(): 
