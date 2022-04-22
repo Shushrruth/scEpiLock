@@ -17,42 +17,41 @@ class Tester():
 
         self.model = model
         self.model_weight_path = model_weight_path
-        self.test_data = test_loader
+        self.test_data = test_data
         self.batch_size = batch_size
         self.n_class = n_class
 
-    def tester(self):
+    def test(self):
+
+        test_loader = torch.utils.data.DataLoader(self.test_data, batch_size=self.batch_size, shuffle=True)
 
         device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
         model = self.model(n_class).to(device)
         model.load_state_dict(torch.load(self.model_weight_path))
-        model.eval()
+
 
         test_loss = 0
         correct = 0
         y_pred = []
         y_true = []
         y_proba = []
-        with torch.no_grad():
+        model.eval() 
 
-            for data1, data2, target in tqdm(self.testloader):
-                data1, data2, target = data1.to(device), data2.to(device), target.to(device)
+        with torch.no_grad(): 
+            for X1,X2, y in tqdm(test_loader):
+                optimizer.zero_grad() 
+                X1,X2, y = X1.to(device), X2.to(device),y.to(device)
 
-                output = model(data1,data2).squeeze()
-                test_loss += nn.BCELoss()(output, target).item()*1e+1  # sum up batch loss
-                prob = (output)
-                y_probas=prob.cpu().numpy()
-                
-                prob[prob>=0.5] = 1
-                prob[prob<0.5] = 0
-                correct += torch.sum(prob==target)
-                for i in range(len(prob)):
-                    y_proba.append(float(y_probas[i]))
-                    y_pred.append(float(prob[i]))
-                    y_true.append(float(target[i]))
+                output = model(X1.float(), X2.float())
+
+                y_hat = outputs
+                y = y.float()
+
+                y_true = np.concatenate((y_true, y.cpu().numpy()))
+                y_pred = np.concatenate((y_pred, y_hat.cpu().numpy()))
 
 
-        return y_true, y_proba, y_pred
+        return y_true, y_pred
 
 
 
