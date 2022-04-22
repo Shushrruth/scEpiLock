@@ -1,3 +1,4 @@
+  0%|          | 0/625 [00:00<?, ?it/s]  0%|          | 0/625 [00:00<?, ?it/s]
 Traceback (most recent call last):
   File "/gpfs/ysm/project/girgenti/sss253/conda_envs/scEpilock/lib/python3.7/runpy.py", line 193, in _run_module_as_main
     "__main__", mod_spec)
@@ -5,11 +6,21 @@ Traceback (most recent call last):
     exec(code, run_globals)
   File "binary_classifier/__main__.py", line 48, in <module>
     y_true, y_pred = tester.test()
-  File "binary_classifier/train/tester.py", line 29, in test
-    model = self.model(self.n_class).to(device)
-  File "binary_classifier/model/model.py", line 73, in __init__
-    super(scEpiLock, self).__init__()
-TypeError: super(type, obj): obj must be an instance or subtype of type
+  File "binary_classifier/train/tester.py", line 41, in test
+    for X1,X2, y in tqdm(test_loader):
+  File "/gpfs/ysm/project/girgenti/sss253/conda_envs/scEpilock/lib/python3.7/site-packages/tqdm/std.py", line 1166, in __iter__
+    for obj in iterable:
+  File "/gpfs/ysm/project/girgenti/sss253/conda_envs/scEpilock/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 435, in __next__
+    data = self._next_data()
+  File "/gpfs/ysm/project/girgenti/sss253/conda_envs/scEpilock/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 475, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/gpfs/ysm/project/girgenti/sss253/conda_envs/scEpilock/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/gpfs/ysm/project/girgenti/sss253/conda_envs/scEpilock/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "binary_classifier/data/data_loader.py", line 108, in __getitem__
+    temp[row_index, 2] = 1
+NameError: name 'temp' is not defined
 positive size =  (399457,)
 negative size =  (711878,)
 label size =  (399457, 7)
@@ -25,5 +36,5 @@ label size =  (399457, 7)
 -----------------shape before add RC -------------
 (39946,)
 (39946, 7)
-train start time:  2022-04-21 20:56:13.721131
-train end time:  2022-04-21 20:56:13.721154
+train start time:  2022-04-21 21:01:13.593852
+train end time:  2022-04-21 21:01:13.593876
