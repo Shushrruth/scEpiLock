@@ -44,7 +44,7 @@ class Tester():
 
                 output = model(X1.float(), X2.float())
 
-                y_hat = outputs
+                y_hat = output
                 y = y.float()
 
                 y_true = np.concatenate((y_true, y.cpu().numpy()))
