@@ -18,9 +18,9 @@ Traceback (most recent call last):
     data = [self.dataset[idx] for idx in possibly_batched_index]
   File "/gpfs/ysm/project/girgenti/sss253/conda_envs/scEpilock/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
     data = [self.dataset[idx] for idx in possibly_batched_index]
-  File "binary_classifier/data/data_loader.py", line 108, in __getitem__
-    temp[row_index, 2] = 1
-NameError: name 'temp' is not defined
+  File "binary_classifier/data/data_loader.py", line 117, in __getitem__
+    temp2[row_index, 0] = 1
+IndexError: index 1000 is out of bounds for axis 0 with size 1000
 positive size =  (399457,)
 negative size =  (711878,)
 label size =  (399457, 7)
@@ -36,5 +36,5 @@ label size =  (399457, 7)
 -----------------shape before add RC -------------
 (39946,)
 (39946, 7)
-train start time:  2022-04-21 21:01:13.593852
-train end time:  2022-04-21 21:01:13.593876
+train start time:  2022-04-21 21:06:15.105100
+train end time:  2022-04-21 21:06:15.105123
