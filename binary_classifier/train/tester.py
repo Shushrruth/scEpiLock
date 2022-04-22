@@ -39,7 +39,7 @@ class Tester():
 
         with torch.no_grad(): 
             for X1,X2, y in tqdm(test_loader):
-                optimizer.zero_grad() 
+                #optimizer.zero_grad() 
                 X1,X2, y = X1.to(device), X2.to(device),y.to(device)
 
                 output = model(X1.float(), X2.float())
