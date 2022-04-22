@@ -26,7 +26,7 @@ class Tester():
         test_loader = torch.utils.data.DataLoader(self.test_data, batch_size=self.batch_size, shuffle=True)
 
         device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-        model = self.model(n_class).to(device)
+        model = self.model(self.n_class).to(device)
         model.load_state_dict(torch.load(self.model_weight_path))
 
 
