@@ -70,7 +70,7 @@ class scEpiLock(nn.Module):
 
 class scEpiLock_Siam(nn.Module):
     def __init__(self, n_class):
-        super(scEpiLock, self).__init__()
+        super(scEpiLock_Siam, self).__init__()
         self.Conv1 = nn.Conv1d(in_channels=4, out_channels=320, kernel_size=8)
         self.Conv2 = nn.Conv1d(in_channels=320, out_channels=480, kernel_size=8)
         self.Conv3 = nn.Conv1d(in_channels=480, out_channels=960, kernel_size=4)
