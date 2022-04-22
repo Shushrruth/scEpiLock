@@ -111,6 +111,7 @@ class DataLoader_Siam(Dataset):
             row_index += 1
 
         temp2 = np.zeros((len(seq), 4))
+        row_index = 0
         #print(seq)
         for base in rc_seq:
             if base == 'A' or base == 'a':
