@@ -52,7 +52,7 @@ print(y_true)
 print('y_pred')
 print(y_pred)
 
-Tester.plot_prc_curve(torch.flatten(y_true),torch.flatten(y_pred),test_out_dir+'PRC_plot.png')
-Tester.plot_roc_curve(torch.flatten(y_true),torch.flatten(y_pred),test_out_dir+'ROC_plot.png')
+Tester.plot_prc_curve(y_true.flatten(), y_pred.flatten(),test_out_dir+'PRC_plot.png')
+Tester.plot_roc_curve(y_true.flatten(), y_pred.flatten(),test_out_dir+'ROC_plot.png')
 
 
