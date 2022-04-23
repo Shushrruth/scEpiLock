@@ -63,7 +63,7 @@ class Trainer:
 
             model.train()  # set to train mode, use dropout and batchnorm ##
 
-            for train_step, (X, y) in enumerate(train_loader):
+            for (X, y) in tqdm(train_loader):
 
                 X = X.to(device)
                 y = y.to(device)
@@ -83,7 +83,7 @@ class Trainer:
                 y = y.cpu().detach().numpy()
 
                 train_loss += loss.item() * X.size(0) #loss.item() has be reducted by batch size
-                if epoch == 0 and train_step == 0:
+                if epoch == 0:
                     initial_loss = loss.item()
                     initial_acc = np.sum(y_pred == y)/float(self._batch_size*self.n_class)
 
@@ -125,6 +125,5 @@ class Trainer:
             if eval_loss < best_loss:
                 best_loss = eval_loss
                 best_model_wts = copy.deepcopy(model.state_dict())
-        print('done')
 
-        torch.save(best_model_wts, self._model_path)
+            torch.save(best_model_wts, self._model_path)
