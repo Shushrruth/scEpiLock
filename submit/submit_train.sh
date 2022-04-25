@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH --job-name=train
-#SBATCH --time=2-
-#SBATCH --gpus=rtx3090:1
+#SBATCH --time=1-
+#SBATCH --gpus 1
 #SBATCH --cpus-per-task 8
 #SBATCH --mem 16G
 #SBATCH --ntasks=1 
 #SBATCH --partition=gpu
-#SBATCH --output=out/classifier_test.o
+#SBATCH --output=out/classifier_test_test.o
 #
 module load miniconda
 conda activate scEpilock
