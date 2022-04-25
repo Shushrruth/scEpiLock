@@ -24,10 +24,10 @@ test_data_loader = DataLoader_Siam(data_test, label_test)
 
 # Trainer
 
-model_wt_path = "/home/sss253/project/scEpiLock_weights/04-18-model_v2.pt"
+model_wt_path = "/home/sss253/project/scEpiLock_weights/model_v3.pt"
 epochs = 100
 batch_size = 64
-learning_rate = 1e-3
+learning_rate = 5e-4
 weight_decay = 5e-4
 n_class = 7
 
@@ -52,7 +52,7 @@ print(y_true)
 print('y_pred')
 print(y_pred)
 
-Tester.plot_prc_curve(y_true.flatten(), y_pred.flatten(),test_out_dir+'PRC_plot_v2.png')
-Tester.plot_roc_curve(y_true.flatten(), y_pred.flatten(),test_out_dir+'ROC_plot_v2.png')
+Tester.plot_prc_curve(y_true.flatten(), y_pred.flatten(),test_out_dir+'PRC_plot_v3.png')
+Tester.plot_roc_curve(y_true.flatten(), y_pred.flatten(),test_out_dir+'ROC_plot_v3.png')
 
 
