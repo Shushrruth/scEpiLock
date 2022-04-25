@@ -13,7 +13,7 @@ class scEpiLock(nn.Module):
         self.Maxpool = nn.MaxPool1d(kernel_size=4, stride=4)
         self.Drop1 = nn.Dropout(p=0.2)
         self.Drop2 = nn.Dropout(p=0.5)
-        self.Linear1 = nn.Linear(57*1024, 925)
+        self.Linear1 = nn.Linear(57*480, 925)
         self.Linear2 = nn.Linear(925, n_class)
 
     def forward(self, input):
@@ -62,7 +62,7 @@ class scEpiLock(nn.Module):
         # Output Tensor Shape: [batch_size, 1024, 14]
         #x = self.Maxpool(x)
 
-        x = x.view(-1, 57*1024)
+        x = x.view(-1, 57*480)
         x = self.Linear1(x)
         x = F.relu(x)
         x = self.Linear2(x)
@@ -79,7 +79,7 @@ class scEpiLock_Siam(nn.Module):
         self.Maxpool = nn.MaxPool1d(kernel_size=4, stride=4)
         self.Drop1 = nn.Dropout(p=0.2)
         self.Drop2 = nn.Dropout(p=0.5)
-        self.Linear1 = nn.Linear(57*1024, 925)
+        self.Linear1 = nn.Linear(57*480, 925)
         self.Linear2 = nn.Linear(925, n_class)
 
     def forward_one(self, input):
@@ -128,7 +128,7 @@ class scEpiLock_Siam(nn.Module):
         # Output Tensor Shape: [batch_size, 1024, 14]
         #x = self.Maxpool(x)
 
-        x = x.view(-1, 57*1024)
+        x = x.view(-1, 57*480)
         x = self.Linear1(x)
         x = F.relu(x)
         x = self.Linear2(x)
