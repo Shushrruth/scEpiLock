@@ -7,18 +7,19 @@ class PreProcessor():
     def __init__(self, data_dir):
 
         self.pos_fasta_path = data_dir + 'x-centered-positives.scATAC-seqPeaks.for-trainging.fa'        
-        self.neg_path = data_dir + 'x-centered-negatives-Random-2000bpAway.fa'
+        self.neg_path_1 = data_dir + 'x-centered-negatives-Random-2000bpAway.fa'
+        self.neg_path_2 = data_dir + 'x-centered-negatives-Encode-2000bpAway.fa'
         self.label_path = data_dir + 'y-labels-positives.for-trainging.txt'
 
     def concat_data(self):
 
         pos_fasta = pd.read_csv(self.pos_fasta_path,sep=">chr*",header=None, engine='python').values[1::2][:,0] 
-        neg_fasta = pd.read_csv(self.neg_path,sep=">chr*",header=None, engine='python').values[1::2][:,0]
+        #neg_fasta = pd.read_csv(self.neg_path,sep=">chr*",header=None, engine='python').values[1::2][:,0]
         label = pd.read_csv(self.label_path, sep = "\t", header=0)
 
 
         print("positive size = ", pos_fasta.shape) 
-        print("negative size = ",neg_fasta.shape) 
+        #print("negative size = ",neg_fasta.shape) 
         print("label size = ",label.shape) 
 
 
