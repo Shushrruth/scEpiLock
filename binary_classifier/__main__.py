@@ -26,9 +26,9 @@ test_data_loader = DataLoader_Siam(data_test, label_test)
 
 model_wt_path = "/home/sss253/project/scEpiLock_weights/04-18-model_v2.pt"
 learning_rate = 5e-4
-epochs = 10
+epochs = 100
 batch_size = 64
-weight_decay = 5e-4
+weight_decay = 1e-5
 n_class = 7
 
 trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, batch_size, 

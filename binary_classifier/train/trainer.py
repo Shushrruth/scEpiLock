@@ -92,6 +92,7 @@ class Trainer:
             train_loss = train_loss/len(train_loader.dataset)
             train_acc = train_acc/ float(len(train_loader.dataset)*self.n_class)
             print('Epoch {} {} Loss: {:.4f} Acc: {:.4f}'.format(epoch, 'train', train_loss, train_acc))
+            train_loss_hist.append(train_loss)
 
 
             # Evaluation
@@ -122,8 +123,10 @@ class Trainer:
             eval_loss_hist.append(eval_loss)
             eval_acc_hist.append(eval_acc)
 
+            np.save('/home/sss253/project/scEpiLock_weights/train_loss_TL25.npy', train_loss_hist)
+            np.save('/home/sss253/project/scEpiLock_weights/val_loss_TL25.npy', eval_loss_hist)
+
             if eval_loss < best_loss:
                 best_loss = eval_loss
                 best_model_wts = copy.deepcopy(model.state_dict())
-
-            torch.save(best_model_wts, self._model_path)
+                torch.save(best_model_wts, self._model_path)

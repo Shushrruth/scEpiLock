@@ -6,7 +6,7 @@
 #SBATCH --mem 16G
 #SBATCH --ntasks=1 
 #SBATCH --partition=gpu
-#SBATCH --output=out/classifier_test.o
+#SBATCH --output=out/classifier.o
 #
 module load miniconda
 conda activate scEpilock
