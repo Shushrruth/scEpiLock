@@ -141,4 +141,4 @@ class scEpiLock_Siam(nn.Module):
 
         out = torch.maximum(out1,out2)
 
-        return out#torch.sigmoid(out)
+        return torch.sigmoid(out)
