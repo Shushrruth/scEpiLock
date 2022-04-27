@@ -36,7 +36,7 @@ trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, ba
 
 
 print("train start time: ", datetime.now())
-trainer.train()
+#trainer.train()
 print("train end time: ", datetime.now())
 
 

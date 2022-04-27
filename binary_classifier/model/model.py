@@ -139,6 +139,6 @@ class scEpiLock_Siam(nn.Module):
         out1 = self.forward_one(x1)
         out2 = self.forward_one(x2)
 
-        out = (out1+out2)/2
+        out = torch.maximum(out1,out2)
 
         return out#torch.sigmoid(out)
