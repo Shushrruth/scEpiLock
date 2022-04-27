@@ -6,36 +6,41 @@ class PreProcessor():
 
     def __init__(self, data_dir):
 
-        self.pos_fasta_path = data_dir + 'x-centered-positives.scATAC-seqPeaks.for-trainging.fa'        
+        self.pos_fasta_path = data_dir + 'x-centered-positives.scATAC-seqPeaks.for-trainging.fa' 
         self.neg_path_1 = data_dir + 'x-centered-negatives-Random-2000bpAway.fa'
-        self.neg_path_2 = data_dir + 'x-centered-negatives-Encode-2000bpAway.fa'
+        self.neg_path_2 = data_dir + 'x-centered-negatives-ENCODE-2000bpAway.fa'
         self.label_path = data_dir + 'y-labels-positives.for-trainging.txt'
+
 
     def concat_data(self):
 
         pos_fasta = pd.read_csv(self.pos_fasta_path,sep=">chr*",header=None, engine='python').values[1::2][:,0] 
-        #neg_fasta = pd.read_csv(self.neg_path,sep=">chr*",header=None, engine='python').values[1::2][:,0]
+        neg_fasta_1 = pd.read_csv(self.neg_path_1,sep=">chr*",header=None, engine='python').values[1::2][:,0]
+        neg_fasta_2 = pd.read_csv(self.neg_path_2,sep=">chr*",header=None, engine='python').values[1::2][:,0]
         label = pd.read_csv(self.label_path, sep = "\t", header=0)
-
-
-        print("positive size = ", pos_fasta.shape) 
-        #print("negative size = ",neg_fasta.shape) 
-        print("label size = ",label.shape) 
-
-
-        #np.random.seed(202101190)
-        #neg_index = np.random.choice(neg_fasta.shape[0], size=self.neg_n, replace=False)
-        #neg_fasta = neg_fasta[neg_index]
-
-
-        #data = np.concatenate([pos_fasta, neg_fasta])
-        data = pos_fasta
-
+        
+        len_p = round(len(pos_fasta))
+        
+        np.random.shuffle(neg_fasta_1)
+        np.random.shuffle(neg_fasta_2)
+        
+        neg_fasta_1 = neg_fasta_1[:len_p]
+        neg_fasta_2 = neg_fasta_2[:len_p]
+        
+        data = np.concatenate([pos_fasta, neg_fasta_1,neg_fasta_2])
+        
+        neg_label = np.zeros((len_p*2, 7))
         label = label.to_numpy()
+        label = np.concatenate([label, neg_label])
+        
 
-        #neg_label = np.zeros((self.neg_n, len(self.cell_cluster)))
+        print("positive size = ", pos_fasta.shape)  
+        print("positive label size = ",label.shape) 
+        
+        print("total data size = " , data.shape)
+        print("Total label size = ", label.shape)
 
-        #label = np.concatenate([label, neg_label])
+
 
 
         return data, label

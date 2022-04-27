@@ -6,14 +6,14 @@ import torch
 class scEpiLock(nn.Module):
     def __init__(self, n_class):
         super(scEpiLock, self).__init__()
-        self.Conv1 = nn.Conv1d(in_channels=4, out_channels=160, kernel_size=8)
+        self.Conv1 = nn.Conv1d(in_channels=4, out_channels=160, kernel_size=30)
         self.Conv2 = nn.Conv1d(in_channels=160, out_channels=160, kernel_size=8)
         self.Conv3 = nn.Conv1d(in_channels=160, out_channels=160, kernel_size=4)
         self.Conv4 = nn.Conv1d(in_channels=160, out_channels=160, kernel_size=4)
         self.Maxpool = nn.MaxPool1d(kernel_size=4, stride=4)
         self.Drop1 = nn.Dropout(p=0.2)
         self.Drop2 = nn.Dropout(p=0.5)
-        self.Linear1 = nn.Linear(57*160, 925)
+        self.Linear1 = nn.Linear(56*160, 925)
         self.Linear2 = nn.Linear(925, n_class)
 
     def forward(self, input):
@@ -52,17 +52,17 @@ class scEpiLock(nn.Module):
 
         # Convolution Layer 4
         # Input Tensor Shape: [batch_size, 960, 60]
-        # Output Tensor Shape: [batch_size, 1024, 57]
+        # Output Tensor Shape: [batch_size, 1024, 56]
         x = self.Conv4(x)
         x = F.relu(x)
         x = self.Drop2(x)
 
         # Pooling Layer 3
-        # Input Tensor Shape: [batch_size, 1024, 57]
+        # Input Tensor Shape: [batch_size, 1024, 56]
         # Output Tensor Shape: [batch_size, 1024, 14]
         #x = self.Maxpool(x)
 
-        x = x.view(-1, 57*160)
+        x = x.view(-1, 56*160)
         x = self.Linear1(x)
         x = F.relu(x)
         x = self.Linear2(x)
@@ -72,14 +72,14 @@ class scEpiLock(nn.Module):
 class scEpiLock_Siam(nn.Module):
     def __init__(self, n_class):
         super(scEpiLock_Siam, self).__init__()
-        self.Conv1 = nn.Conv1d(in_channels=4, out_channels=160, kernel_size=8)
+        self.Conv1 = nn.Conv1d(in_channels=4, out_channels=160, kernel_size=30)
         self.Conv2 = nn.Conv1d(in_channels=160, out_channels=160, kernel_size=8)
         self.Conv3 = nn.Conv1d(in_channels=160, out_channels=160, kernel_size=4)
         self.Conv4 = nn.Conv1d(in_channels=160, out_channels=160, kernel_size=4)
         self.Maxpool = nn.MaxPool1d(kernel_size=4, stride=4)
         self.Drop1 = nn.Dropout(p=0.2)
         self.Drop2 = nn.Dropout(p=0.5)
-        self.Linear1 = nn.Linear(57*160, 925)
+        self.Linear1 = nn.Linear(56*160, 925)
         self.Linear2 = nn.Linear(925, n_class)
 
     def forward_one(self, input):
@@ -118,17 +118,17 @@ class scEpiLock_Siam(nn.Module):
 
         # Convolution Layer 4
         # Input Tensor Shape: [batch_size, 960, 60]
-        # Output Tensor Shape: [batch_size, 1024, 57]
+        # Output Tensor Shape: [batch_size, 1024, 56]
         x = self.Conv4(x)
         x = F.relu(x)
         x = self.Drop2(x)
 
         # Pooling Layer 3
-        # Input Tensor Shape: [batch_size, 1024, 57]
+        # Input Tensor Shape: [batch_size, 1024, 56]
         # Output Tensor Shape: [batch_size, 1024, 14]
         #x = self.Maxpool(x)
 
-        x = x.view(-1, 57*160)
+        x = x.view(-1, 56*160)
         x = self.Linear1(x)
         x = F.relu(x)
         x = self.Linear2(x)

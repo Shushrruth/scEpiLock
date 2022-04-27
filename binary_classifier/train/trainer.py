@@ -123,10 +123,19 @@ class Trainer:
             eval_loss_hist.append(eval_loss)
             eval_acc_hist.append(eval_acc)
 
-            np.save('/home/sss253/project/scEpiLock_weights/train_loss_TL25.npy', train_loss_hist)
-            np.save('/home/sss253/project/scEpiLock_weights/val_loss_TL25.npy', eval_loss_hist)
+            #np.save('/gpfs/gibbs/pi/girgenti/JZhang/sai/projects/scEpiLock_weights/train_loss.npy', train_loss_hist)
+            #np.save('/gpfs/gibbs/pi/girgenti/JZhang/sai/projects/scEpiLock_weights/val_loss.npy', eval_loss_hist)
 
             if eval_loss < best_loss:
                 best_loss = eval_loss
                 best_model_wts = copy.deepcopy(model.state_dict())
                 torch.save(best_model_wts, self._model_path)
+
+
+        #return train_loss_hist, eval_loss_hist
+        np.save('/gpfs/gibbs/pi/girgenti/JZhang/sai/projects/scEpiLock_weights/val_loss.npy', eval_loss_hist)
+        np.save('/gpfs/gibbs/pi/girgenti/JZhang/sai/projects/scEpiLock_weights/train_loss.npy', train_loss_hist)
+
+
+    
+

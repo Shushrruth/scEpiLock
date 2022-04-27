@@ -24,7 +24,7 @@ test_data_loader = DataLoader_Siam(data_test, label_test)
 
 # Trainer
 
-model_wt_path = "/home/sss253/project/scEpiLock_weights/04-18-model_v2.pt"
+model_wt_path = "/gpfs/gibbs/pi/girgenti/JZhang/sai/projects/scEpiLock_weights/model.pt"
 learning_rate = 1e-5
 epochs = 50
 batch_size = 64
@@ -42,7 +42,7 @@ print("train end time: ", datetime.now())
 
 # Testing
 
-test_out_dir = '/home/sss253/project/scEpiLock/binary_classifier/result/plots/'
+test_out_dir = '/gpfs/gibbs/pi/girgenti/JZhang/sai/projects/scEpiLock/binary_classifier/result/plots/'
 
 tester = Tester(scEpiLock_Siam, model_wt_path, test_data_loader, batch_size, n_class)
 y_true, y_pred = tester.test()
@@ -52,7 +52,9 @@ print(y_true)
 print('y_pred')
 print(y_pred)
 
-Tester.plot_prc_curve(y_true.flatten(), y_pred.flatten(),test_out_dir+'PRC_plot_v2.png')
-Tester.plot_roc_curve(y_true.flatten(), y_pred.flatten(),test_out_dir+'ROC_plot_v2.png')
+Tester.plot_prc_curve(y_true.flatten(), y_pred.flatten(),test_out_dir+'PRC_plot.png')
+Tester.plot_roc_curve(y_true.flatten(), y_pred.flatten(),test_out_dir+'ROC_plot.png')
+
+
 
 
