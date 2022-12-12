@@ -22,7 +22,7 @@ ct_path = "/scratch/share/Sai/poject/scEpiLock/results/"
 wt_path = "scratch/share/Sai/data/scEpiLock_weights"
 
 if not os.path.exists(wt_path):
-    os.makedirs(ct_path)
+    os.makedirs(wt_path)
 
 if not os.path.exists(ct_path):
     os.makedirs(ct_path)
@@ -46,7 +46,7 @@ test_data_loader = DataLoader_Siam(data_test, label_test)
 
 model_wt_path = wt_path + "model.pt"
 learning_rate = 1e-4
-epochs = 300
+epochs = 10
 batch_size = 128
 weight_decay = 1e-5
 n_class = 7
@@ -56,7 +56,7 @@ trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, ba
 
 
 print("train start time: ", datetime.now())
-trainer.train()
+#trainer.train()
 print("train end time: ", datetime.now())
 
 

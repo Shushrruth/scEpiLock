@@ -8,7 +8,7 @@ class PreProcessor():
 
         self.pos_fasta_path = data_dir + "union_peaks.fa" # X-centered pos
         #self.neg_fasta_path = data_dir + "x-centered-negatives-ENCODE-5000bpAway.fa" 
-        self.label_path = data_dir + "new_labels.tsv" # y-labels
+        self.label_path = data_dir + "new_lables.tsv" # y-labels
 
         
 
@@ -26,7 +26,7 @@ class PreProcessor():
         
         #np.random.seed(42)
         #np.random.shuffle(neg_fasta)
-        neg_fasta = neg_fasta[:len_p]
+        #neg_fasta = neg_fasta[:len_p]
 
 
 

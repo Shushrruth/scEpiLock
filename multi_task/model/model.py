@@ -10,11 +10,11 @@ class scEpiLock(nn.Module):
 
         self.Conv1 = nn.Conv1d(in_channels=4, out_channels = 100, kernel_size=10)
 
-        self.Maxpool1 = nn.MaxPool1d(kernel_size=3, stride=3)
+        self.Maxpool1 = nn.MaxPool1d(kernel_size=3, stride=2)
 
-        self.Conv2 = nn.Conv1d(in_channels = 50, out_channels = 100, kernel_size = 8)
+        self.Conv2 = nn.Conv1d(in_channels = 100, out_channels = 100, kernel_size = 8)
 
-        self.Maxpool2 = nn.MaxPool1d(kernel_size=3, stride=3)
+        self.Maxpool2 = nn.MaxPool1d(kernel_size=3, stride=2)
 
         #self.Conv3 = nn.Conv1d(in_channels = 50, out_channels =100, kernel_size = 6)
 
@@ -22,7 +22,7 @@ class scEpiLock(nn.Module):
 
         self.Drop1 = nn.Dropout(p=0.3)
 
-        self.Linear1 = nn.Linear(5350*2, 500)
+        self.Linear1 = nn.Linear(11800, 500)
 
         #self.Linear2 = nn.Linear(500, 500)
 
@@ -72,11 +72,11 @@ class scEpiLock_Siam(nn.Module):
 
         self.Conv1 = nn.Conv1d(in_channels=4, out_channels = 100, kernel_size=10)
         #1970
-        self.Maxpool1 = nn.MaxPool1d(kernel_size=3, stride=3)
+        self.Maxpool1 = nn.MaxPool1d(kernel_size=3, stride=2)
         #985
         self.Conv2 = nn.Conv1d(in_channels = 100, out_channels = 100, kernel_size = 8)
         #966
-        self.Maxpool2 = nn.MaxPool1d(kernel_size=3, stride=3)
+        self.Maxpool2 = nn.MaxPool1d(kernel_size=3, stride=2)
         #483
         #self.Conv3 = nn.Conv1d(in_channels = 50, out_channels = 50, kernel_size = 6)
         #476
@@ -84,7 +84,7 @@ class scEpiLock_Siam(nn.Module):
         #79
         self.Drop1 = nn.Dropout(p=0.3)
 
-        self.Linear1 = nn.Linear(5350*2, 500)
+        self.Linear1 = nn.Linear(11800, 500)
 
         #self.Linear2 = nn.Linear(500, 500)
 
@@ -133,4 +133,4 @@ class scEpiLock_Siam(nn.Module):
         
         out = (out1+out2)/2
 
-        return torch.sigmoid(x) 
+        return torch.sigmoid(out) 
