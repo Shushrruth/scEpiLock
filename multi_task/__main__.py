@@ -19,7 +19,7 @@ args = parser.parse_args()
 
 cell_type = args.cell_type
 
-ct_path = "/scratch/share/Sai/projects/scEpiLock/results/"
+ct_path = "/scratch/share/Sai/projects/scEpiLock/multi_task/result/"
 wt_path = "/scratch/share/Sai/data/scEpiLock_weights/"
 
 if not os.path.exists(wt_path):
