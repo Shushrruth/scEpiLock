@@ -18,7 +18,7 @@ args = parser.parse_args()
 
 cell_type = args.cell_type
 
-ct_path = "/scratch/share/Sai/poject/scEpiLock/output/"
+ct_path = "/scratch/share/Sai/poject/scEpiLock/results/"
 wt_path = "scratch/share/Sai/data/scEpiLock_weights"
 
 if not os.path.exists(wt_path):
@@ -72,8 +72,8 @@ print(y_true)
 print('y_pred')
 print(y_pred)
 
-Tester.plot_prc_curve(y_true.flatten(), y_pred.flatten(),test_out_dir+'PRC_plot.png')
-Tester.plot_roc_curve(y_true.flatten(), y_pred.flatten(),test_out_dir+'ROC_plot.png')
+Tester.plot_prc_curve(y_true.flatten(), y_pred.flatten(),test_out_dir+'plots/PRC_plot.png')
+Tester.plot_roc_curve(y_true.flatten(), y_pred.flatten(),test_out_dir+'plots/ROC_plot.png')
 
 target_names = ['Negatives', 'Positives']
 print(classification_report(y_true.flatten(), y_pred.round().flatten(), target_names=target_names))
