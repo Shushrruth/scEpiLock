@@ -9,6 +9,7 @@ from sklearn.metrics import classification_report
 import argparse
 import os
 import numpy as np
+from matplotlib import pyplot as plt
 
 #1 Choosing cell type
 
@@ -18,8 +19,8 @@ args = parser.parse_args()
 
 cell_type = args.cell_type
 
-ct_path = "/scratch/share/Sai/projects/scEpiLock/multi_task/result/"
-wt_path = "scratch/share/Sai/data/scEpiLock_weights"
+ct_path = "/scratch/share/Sai/projects/scEpiLock/results/"
+wt_path = "/scratch/share/Sai/data/scEpiLock_weights/"
 
 if not os.path.exists(wt_path):
     os.makedirs(wt_path)
@@ -46,7 +47,7 @@ test_data_loader = DataLoader_Siam(data_test, label_test)
 
 model_wt_path = wt_path + "model.pt"
 learning_rate = 1e-4
-epochs = 10
+epochs = 5
 batch_size = 128
 weight_decay = 1e-5
 n_class = 7
@@ -56,7 +57,7 @@ trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, ba
 
 
 print("train start time: ", datetime.now())
-#trainer.train()
+trainer.train()
 print("train end time: ", datetime.now())
 
 
@@ -87,5 +88,25 @@ print(classification_report(y_true.round(), y_pred.round(), target_names=columns
 np.save(ct_path + 'y_pred.npy', y_pred)
 np.save(ct_path + 'y_true.npy', y_true)
 
-#print(ct_path + 'y_pred.npy')
+
+
+# Plotting the loss
+train_loss = np.load(ct_path + 'train_loss.npy')
+val_loss = np.load(ct_path +'val_loss.npy')
+
+
+def plot_loss(npy_file,title):
+
+    plt.figure(dpi=600)
+    plt.plot(npy_file)
+    plt.title(title)
+    plt.xlabel('epochs')
+    plt.ylabel('loss')
+    plt.savefig(ct_path + title + '.png')
+
+plot_loss(train_loss, "train_loss")
+plot_loss(val_loss, "val_loss")
+
+
+#
 print("Done")
