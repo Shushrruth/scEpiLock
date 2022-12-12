@@ -57,7 +57,7 @@ trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, ba
 
 
 print("train start time: ", datetime.now())
-trainer.train()
+#trainer.train()
 print("train end time: ", datetime.now())
 
 
@@ -95,17 +95,18 @@ train_loss = np.load(ct_path + 'train_loss.npy')
 val_loss = np.load(ct_path +'val_loss.npy')
 
 
-def plot_loss(npy_file,title):
+def plot_loss():
 
     plt.figure(dpi=600)
-    plt.plot(npy_file)
-    plt.title(title)
+    plt.plot(train_loss)
+    plt.plot(val_loss)
+    plt.title('loss curves')
     plt.xlabel('epochs')
     plt.ylabel('loss')
-    plt.savefig(ct_path + title + '.png')
+    plt.legend(['train loss' , 'val loss'])
+    plt.savefig(ct_path + 'plots/loss_curves.png')
 
-plot_loss(train_loss, "train_loss")
-plot_loss(val_loss, "val_loss")
+plot_loss()
 
 
 #
