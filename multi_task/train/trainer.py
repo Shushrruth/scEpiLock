@@ -47,6 +47,7 @@ class Trainer:
         best_loss = 1000
 
 
+        """
         pos_weights = [3.4552420254294,
                      3.5131147726886134,
                      2.3217767984951023,
@@ -54,9 +55,11 @@ class Trainer:
                      3.013589494163424,
                      2.4997740660050027,
                      2.597682355210089]
+        """
         
         
-        criterion = nn.BCEWithLogitsLoss(pos_weight=torch.FloatTensor(pos_weights)).to(device)
+        #criterion = nn.BCEWithLogitsLoss(pos_weight=torch.FloatTensor(pos_weights)).to(device)
+        criterion = nn.BCEWithLogitsLoss().to(device)
         optimizer = torch.optim.Adam(model.parameters(), lr=self._learning_rate, amsgrad=True, weight_decay = self._weight_decay)
 
         train_loader = torch.utils.data.DataLoader(self.train_data, batch_size=self._batch_size, shuffle=True)
