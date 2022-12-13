@@ -61,7 +61,7 @@ class scEpiLock(nn.Module):
         # Input Tensor Shape: [batch_size, 1024, 57]
         # Output Tensor Shape: [batch_size, 1024, 14]
         #x = self.Maxpool(x)
-        print(x.shape)
+        #print(x.shape)
         x = x.view(-1, 26*1024)
         x = self.Linear1(x)
         x = F.relu(x)
