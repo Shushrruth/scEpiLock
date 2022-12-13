@@ -47,7 +47,7 @@ test_data_loader = DataLoader_Siam(data_test, label_test)
 
 model_wt_path = wt_path + "model.pt"
 learning_rate = 1e-4
-epochs = 5
+epochs = 100
 batch_size = 128
 weight_decay = 1e-5
 n_class = 7
