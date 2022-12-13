@@ -1,131 +1,145 @@
-import torch
 from torch import nn
-from torch.nn import functional as F
-from torch.nn import MaxPool1d
+import torch.nn.functional as F
+import torch
 
 
 class scEpiLock(nn.Module):
-    def __init__(self,n_class):
+    def __init__(self, n_class):
         super(scEpiLock, self).__init__()
-
-        self.Conv1 = nn.Conv1d(in_channels=4, out_channels = 100, kernel_size=10)
-
-        self.Maxpool1 = nn.MaxPool1d(kernel_size=3, stride=2)
-
-        self.Conv2 = nn.Conv1d(in_channels = 100, out_channels = 100, kernel_size = 8)
-
-        self.Maxpool2 = nn.MaxPool1d(kernel_size=3, stride=2)
-
-        #self.Conv3 = nn.Conv1d(in_channels = 50, out_channels =100, kernel_size = 6)
-
-        #self.Maxpool3 = nn.MaxPool1d(kernel_size=8, stride=6)
-
-        self.Drop1 = nn.Dropout(p=0.3)
-
-        self.Linear1 = nn.Linear(11800, 500)
-
-        #self.Linear2 = nn.Linear(500, 500)
-
-        self.Linear3 = nn.Linear(500,7)
-
+        self.Conv1 = nn.Conv1d(in_channels=4, out_channels=320, kernel_size=8)
+        self.Conv2 = nn.Conv1d(in_channels=320, out_channels=480, kernel_size=8)
+        self.Conv3 = nn.Conv1d(in_channels=480, out_channels=960, kernel_size=4)
+        self.Conv4 = nn.Conv1d(in_channels=960, out_channels=1024, kernel_size=4)
+        self.Maxpool = nn.MaxPool1d(kernel_size=4, stride=4)
+        self.Drop1 = nn.Dropout(p=0.2)
+        self.Drop2 = nn.Dropout(p=0.5)
+        self.Linear1 = nn.Linear(26*1024, 925)
+        self.Linear2 = nn.Linear(925, n_class)
 
     def forward(self, input):
-
+        # Convolution Layer 1
+        # Input Tensor Shape: [batch_size, 4, 1000]
+        # Output Tensor Shape: [batch_size, 320, 993]
         x = self.Conv1(input)
-
         x = F.relu(x)
-        x = self.Maxpool1(x)
- 
+        # # Pooling Layer 1
+        # # Input Tensor Shape: [batch_size, 320, 993]
+        # # Output Tensor Shape: [batch_size, 320, 248]
+        # x = self.Maxpool(x)
+        # x = self.Drop1(x)
+
+        # Convolution Layer 2
+        # Input Tensor Shape: [batch_size, 320, 993]
+        # Output Tensor Shape: [batch_size, 480, 986]
         x = self.Conv2(x)
-
         x = F.relu(x)
-        x = self.Maxpool2(x)
-
-        #x = self.Conv3(x)
-
-        #x = F.relu(x)
-        #x = self.Maxpool3(x)
-
-        x = torch.flatten(x,1)
-
+        # Pooling Layer 1320
+        # Input Tensor Shape: [batch_size, 480, 986]
+        # Output Tensor Shape: [batch_size, 480, 246]
+        x = self.Maxpool(x)
         x = self.Drop1(x)
-        #print(x.shape)
+
+        # Convolution Layer 3
+        # Input Tensor Shape: [batch_size, 480, 246]
+        # Output Tensor Shape: [batch_size, 960, 243]
+        x = self.Conv3(x)
+        x = F.relu(x)
+        # Pooling Layer 2
+        # Input Tensor Shape: [batch_size, 480, 243]
+        # Output Tensor Shape: [batch_size, 480, 60]
+        x = self.Maxpool(x)
+        x = self.Drop2(x)
+
+        # Convolution Layer 4
+        # Input Tensor Shape: [batch_size, 960, 60]
+        # Output Tensor Shape: [batch_size, 1024, 57]
+        x = self.Conv4(x)
+        x = F.relu(x)
+        x = self.Drop2(x)
+
+        # Pooling Layer 3
+        # Input Tensor Shape: [batch_size, 1024, 57]
+        # Output Tensor Shape: [batch_size, 1024, 14]
+        #x = self.Maxpool(x)
+        print(x.shape)
+        x = x.view(-1, 26*1024)
         x = self.Linear1(x)
-
         x = F.relu(x)
-
-        x = self.Drop1(x)
-
-        #x = self.Linear2(x)
-
-        x = F.relu(x)
-
-        x = self.Linear3(x)
-
-        #x = torch.sigmoid(x)
-
+        x = self.Linear2(x)
         return x
+
+
+
+from torch import nn
+import torch.nn.functional as F
+import torch
+
 
 class scEpiLock_Siam(nn.Module):
-    def __init__(self,n_class):
+    def __init__(self, n_class):
         super(scEpiLock_Siam, self).__init__()
-
-        self.Conv1 = nn.Conv1d(in_channels=4, out_channels = 100, kernel_size=10)
-        #1970
-        self.Maxpool1 = nn.MaxPool1d(kernel_size=3, stride=2)
-        #985
-        self.Conv2 = nn.Conv1d(in_channels = 100, out_channels = 100, kernel_size = 8)
-        #966
-        self.Maxpool2 = nn.MaxPool1d(kernel_size=3, stride=2)
-        #483
-        #self.Conv3 = nn.Conv1d(in_channels = 50, out_channels = 50, kernel_size = 6)
-        #476
-        #self.Maxpool3 = nn.MaxPool1d(kernel_size=8, stride=6)
-        #79
-        self.Drop1 = nn.Dropout(p=0.3)
-
-        self.Linear1 = nn.Linear(11800, 500)
-
-        #self.Linear2 = nn.Linear(500, 500)
-
-        self.Linear3 = nn.Linear(500,7)
-
+        self.Conv1 = nn.Conv1d(in_channels=4, out_channels=320, kernel_size=8)
+        self.Conv2 = nn.Conv1d(in_channels=320, out_channels=480, kernel_size=8)
+        self.Conv3 = nn.Conv1d(in_channels=480, out_channels=960, kernel_size=4)
+        self.Conv4 = nn.Conv1d(in_channels=960, out_channels=1024, kernel_size=4)
+        self.Maxpool = nn.MaxPool1d(kernel_size=4, stride=4)
+        self.Drop1 = nn.Dropout(p=0.2)
+        self.Drop2 = nn.Dropout(p=0.5)
+        self.Linear1 = nn.Linear(26*1024, 925)
+        self.Linear2 = nn.Linear(925, n_class)
 
     def forward_one(self, input):
-        
+        # Convolution Layer 1
+        # Input Tensor Shape: [batch_size, 4, 1000]
+        # Output Tensor Shape: [batch_size, 320, 993]
         x = self.Conv1(input)
-
         x = F.relu(x)
-        x = self.Maxpool1(x)
- 
+        # # Pooling Layer 1
+        # # Input Tensor Shape: [batch_size, 320, 993]
+        # # Output Tensor Shape: [batch_size, 320, 248]
+        # x = self.Maxpool(x)
+        # x = self.Drop1(x)
+
+        # Convolution Layer 2
+        # Input Tensor Shape: [batch_size, 320, 993]
+        # Output Tensor Shape: [batch_size, 480, 986]
         x = self.Conv2(x)
-
         x = F.relu(x)
-        x = self.Maxpool2(x)
-
-        #x = self.Conv3(x)
-
-        #x = F.relu(x)
-        #x = self.Maxpool3(x)
-
-        x = torch.flatten(x,1)
-
+        # Pooling Layer 1320
+        # Input Tensor Shape: [batch_size, 480, 986]
+        # Output Tensor Shape: [batch_size, 480, 246]
+        x = self.Maxpool(x)
         x = self.Drop1(x)
+
+        # Convolution Layer 3
+        # Input Tensor Shape: [batch_size, 480, 246]
+        # Output Tensor Shape: [batch_size, 960, 243]
+        x = self.Conv3(x)
+        x = F.relu(x)
+        # Pooling Layer 2
+        # Input Tensor Shape: [batch_size, 480, 243]
+        # Output Tensor Shape: [batch_size, 480, 60]
+        x = self.Maxpool(x)
+        x = self.Drop2(x)
+
+        # Convolution Layer 4
+        # Input Tensor Shape: [batch_size, 960, 60]
+        # Output Tensor Shape: [batch_size, 1024, 57]
+        x = self.Conv4(x)
+        x = F.relu(x)
+        x = self.Drop2(x)
+
+        # Pooling Layer 3
+        # Input Tensor Shape: [batch_size, 1024, 57]
+        # Output Tensor Shape: [batch_size, 1024, 14]
+        #x = self.Maxpool(x)
         #print(x.shape)
+        x = x.view(-1, 26*1024)
         x = self.Linear1(x)
-
         x = F.relu(x)
-
-        x = self.Drop1(x)
-
-        #x = self.Linear2(x)
-
-        x = F.relu(x)
-
-        x = self.Linear3(x)
-
+        x = self.Linear2(x)
         return x
-    
+
     def forward(self,x1,x2):
 
         out1 = self.forward_one(x1)
