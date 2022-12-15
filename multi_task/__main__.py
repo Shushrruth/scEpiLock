@@ -88,6 +88,9 @@ print(y_true)
 print('y_pred')
 print(y_pred)
 
+if not os.path.exists(test_out_dir+'plots/'):
+    os.makedirs(test_out_dir+'plots/')
+
 Tester.plot_prc_curve(y_true.flatten(), y_pred.flatten(),test_out_dir+'plots/PRC_plot.png')
 Tester.plot_roc_curve(y_true.flatten(), y_pred.flatten(),test_out_dir+'plots/ROC_plot.png')
 
