@@ -9,6 +9,7 @@
 #SBATCH --partition=zhanglab.p
 #SBATCH --out=out/classifier_multi_task.o
 
+module purge
 module load anaconda
 conda activate scEpilock
 python3 multi_task 'Multi_task'
