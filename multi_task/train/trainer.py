@@ -35,7 +35,7 @@ class Trainer:
     def train(self):
         """ train """
         device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-        model = self.model(self.n_class).to(device)
+        model = self.model.to(device)
 
 
         train_loss_hist = []

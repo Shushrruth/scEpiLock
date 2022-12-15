@@ -12,4 +12,4 @@
 module purge
 module load anaconda
 conda activate scEpilock
-python3 multi_task 'Multi_task'
+python3 multi_task 'Run1'
