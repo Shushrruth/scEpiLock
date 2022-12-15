@@ -66,7 +66,7 @@ model = scEpiLock(n_class, input_dim,cnn_kernel, cnn_channels,max_kernel,max_str
 ############################
 
 trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, batch_size, 
-	learning_rate, weight_decay, train_weights , '/', n_class,model, ct_path)
+	learning_rate, weight_decay , '/', n_class,model, ct_path,train_weights)
 
 
 print("train start time: ", datetime.now())
