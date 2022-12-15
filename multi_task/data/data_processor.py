@@ -10,7 +10,14 @@ class PreProcessor():
         #self.neg_fasta_path = data_dir + "x-centered-negatives-ENCODE-5000bpAway.fa" 
         self.label_path = data_dir + "new_lables.tsv" # y-labels
 
-        
+    def get_ratio(df):
+        weights = []
+        for col in df.columns:
+            array = x[col].values
+
+            weights.append(sum(array==0)/sum(array==1))
+  
+        return weights
 
     def concat_data(self):
 
@@ -21,6 +28,7 @@ class PreProcessor():
 
         pos_label = label.to_numpy()
 
+        train_weights = get_ratio(label)
 
         #len_p = round(len(pos_fasta)/5)
         
@@ -46,7 +54,7 @@ class PreProcessor():
         #print("Total label size = ", neg_label.shape)
 
 
-        return pos_fasta, pos_label
+        return pos_fasta, pos_label, train_weights
 
     def split_train_test(self, data, label, test_size = 0.1):
         data_train_temp, data_test, label_train_temp, label_test = train_test_split(data, label, test_size=test_size, random_state=12)

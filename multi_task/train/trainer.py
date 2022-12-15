@@ -8,7 +8,7 @@ import numpy as np
 
 class Trainer:
     def __init__(self, train_data, eval_data, model_path, num_epochs, batch_size,
-                 learning_rate, weight_decay, pos_weight, plot_path, n_class,model, loss_path):
+                 learning_rate, weight_decay, pos_weight = [1]*7, plot_path, n_class,model, loss_path):
 
         '''
         :param model: the model
@@ -58,8 +58,8 @@ class Trainer:
         """
         
         
-        #criterion = nn.BCEWithLogitsLoss(pos_weight=torch.FloatTensor(pos_weights)).to(device)
-        criterion = nn.BCEWithLogitsLoss().to(device)
+        criterion = nn.BCEWithLogitsLoss(pos_weight=torch.FloatTensor(pos_weights)).to(device)
+        #criterion = nn.BCEWithLogitsLoss().to(device)
         optimizer = torch.optim.Adam(model.parameters(), lr=self._learning_rate, amsgrad=True, weight_decay = self._weight_decay)
 
         train_loader = torch.utils.data.DataLoader(self.train_data, batch_size=self._batch_size, shuffle=True)

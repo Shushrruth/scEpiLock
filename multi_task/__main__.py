@@ -31,7 +31,7 @@ if not os.path.exists(ct_path):
 
 data_dir = "/scratch/share/Sai/data/"
 data_class = PreProcessor(data_dir)
-data, label = data_class.concat_data()
+data, label,train_weights = data_class.concat_data()
 data_train, data_eval, data_test, label_train, label_eval, label_test = data_class.split_train_test(data,label)
 
 #3 Loading and one-hot-encoding
@@ -66,7 +66,7 @@ model = scEpiLock(n_class, input_dim,cnn_kernel, cnn_channels,max_kernel,max_str
 ############################
 
 trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, batch_size, 
-	learning_rate, weight_decay, '_' , '/', n_class,model, ct_path)
+	learning_rate, weight_decay, train_weights , '/', n_class,model, ct_path)
 
 
 print("train start time: ", datetime.now())
