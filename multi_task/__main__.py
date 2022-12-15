@@ -14,12 +14,12 @@ from matplotlib import pyplot as plt
 #1 Choosing cell type
 
 parser = argparse.ArgumentParser(description='Training a binary classififer')
-parser.add_argument('cell_type', type=str, help='Enter cell type of interest')
+parser.add_argument('run', type=str, help='Enter run')
 args = parser.parse_args()
 
-cell_type = args.cell_type
+run = args.cell_type
 
-ct_path = "/scratch/share/Sai/projects/scEpiLock/multi_task/result/"
+ct_path = "/scratch/share/Sai/projects/scEpiLock/multi_task/result/" + run + "/"
 wt_path = "/scratch/share/Sai/data/scEpiLock_weights/"
 
 if not os.path.exists(wt_path):
@@ -44,7 +44,7 @@ test_data_loader = DataLoader_Siam(data_test, label_test)
 
 
 #4 Trainer
-model_wt_path = wt_path + "model.pt"
+model_wt_path = wt_path + "model"+run+ ".pt"
 learning_rate = 1e-5
 epochs = 150
 batch_size = 128
