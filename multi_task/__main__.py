@@ -17,7 +17,7 @@ parser = argparse.ArgumentParser(description='Training a binary classififer')
 parser.add_argument('run', type=str, help='Enter run')
 args = parser.parse_args()
 
-run = args.cell_type
+run = args.run
 
 ct_path = "/scratch/share/Sai/projects/scEpiLock/multi_task/result/" + run + "/"
 wt_path = "/scratch/share/Sai/data/scEpiLock_weights/"
@@ -44,7 +44,7 @@ test_data_loader = DataLoader_Siam(data_test, label_test)
 
 
 #4 Trainer
-model_wt_path = wt_path + "model"+run+ ".pt"
+model_wt_path = wt_path + "model_"+run+ ".pt"
 learning_rate = 1e-5
 epochs = 150
 batch_size = 128
@@ -58,7 +58,7 @@ cnn_kernel = 10
 cnn_channels = 100
 max_kernel = 4
 max_stride = 4
-lienar = 512
+linear = 512
 drop = 0.5
 
 model = scEpiLock(n_class, input_dim,cnn_kernel, cnn_channels,max_kernel,max_stride,linear,drop)
