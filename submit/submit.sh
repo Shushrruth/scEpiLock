@@ -9,7 +9,8 @@
 #SBATCH --partition=zhanglab.p
 #SBATCH --out=out/classifier_multi_task.o
 
-module purge
+
 module load anaconda
+source /pkg/anaconda3/2020.11/etc/profile.d/conda.sh
 conda activate scEpilock
 python3 multi_task 'Multi_task'

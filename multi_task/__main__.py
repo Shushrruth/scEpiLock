@@ -58,7 +58,7 @@ cnn_kernel = 10
 cnn_channels = 100
 max_kernel = 4
 max_stride = 4
-lienar = 512
+linear = 512
 drop = 0.5
 
 model = scEpiLock(n_class, input_dim,cnn_kernel, cnn_channels,max_kernel,max_stride,linear,drop)
