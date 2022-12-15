@@ -46,7 +46,7 @@ test_data_loader = DataLoader_Siam(data_test, label_test)
 #4 Trainer
 model_wt_path = wt_path + "model_"+run+ ".pt"
 learning_rate = 1e-5
-epochs = 150
+epochs = 5
 batch_size = 128
 weight_decay = 0
 
@@ -70,7 +70,7 @@ trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, ba
 
 
 print("train start time: ", datetime.now())
-trainer.train()
+#trainer.train()
 print("train end time: ", datetime.now())
 
 
