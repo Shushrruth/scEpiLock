@@ -8,7 +8,7 @@ import numpy as np
 
 class Trainer:
     def __init__(self, train_data, eval_data, model_path, num_epochs, batch_size,
-                 learning_rate, weight_decay, plot_path, n_class,model, use_weights='No',loss_path,pos_weight = [1]*7):
+                 learning_rate, weight_decay, plot_path, n_class,model,loss_path,use_weights='No',pos_weight = [1]*7):
 
         '''
         :param model: the model

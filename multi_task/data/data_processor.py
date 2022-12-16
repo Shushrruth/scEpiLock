@@ -6,14 +6,14 @@ class PreProcessor():
 
     def __init__(self, data_dir):
 
-        self.pos_fasta_path = data_dir + "union_peaks.fa" # X-centered pos
+        self.pos_fasta_path = data_dir + "union_peaks_1000.fa" # X-centered pos
         #self.neg_fasta_path = data_dir + "x-centered-negatives-ENCODE-5000bpAway.fa" 
         self.label_path = data_dir + "new_lables.tsv" # y-labels
 
-    def get_ratio(df):
+    def get_ratio(self,df):
         weights = []
         for col in df.columns:
-            array = x[col].values
+            array = df[col].values
 
             weights.append(sum(array==0)/sum(array==1))
   
@@ -28,7 +28,7 @@ class PreProcessor():
 
         pos_label = label.to_numpy()
 
-        train_weights = get_ratio(label)
+        train_weights = self.get_ratio(label)
 
         #len_p = round(len(pos_fasta)/5)
         

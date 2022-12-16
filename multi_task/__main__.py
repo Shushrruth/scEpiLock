@@ -53,7 +53,7 @@ weight_decay = 0
 
 #### Model hyperparams #####
 n_class = 7
-input_dim = 500 # or 1000
+input_dim = 1000 # or 1000
 cnn_kernel = 10
 cnn_channels = 100
 max_kernel = 4
@@ -66,11 +66,11 @@ model = scEpiLock(n_class, input_dim,cnn_kernel, cnn_channels,max_kernel,max_str
 ############################
 
 trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, batch_size, 
-	learning_rate, weight_decay , '/', n_class,model, ct_path,'No',train_weights)
+	learning_rate, weight_decay , '/', n_class,model, ct_path,'Yes',train_weights)
 
 
 print("train start time: ", datetime.now())
-#trainer.train()
+trainer.train()
 print("train end time: ", datetime.now())
 
 
