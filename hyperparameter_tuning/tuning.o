@@ -1,0 +1,48 @@
+/var/spool/slurmd.spool/job00699/slurm_script: line 13: module: command not found
+[32m[I 2022-12-16 15:03:36,213][0m A new study created in memory with name: no-name-661b4311-a6ea-441f-b1b5-23ced65cc3e3[0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 8, 'step': 1}
+  RuntimeWarning,
+[33m[W 2022-12-16 15:03:39,271][0m Trial 0 failed because of the following error: RuntimeError('mat1 and mat2 shapes cannot be multiplied (131x8 and 1048x5)')[0m
+Traceback (most recent call last):
+  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/study/_optimize.py", line 213, in _run_trial
+    value_or_values = func(trial)
+  File "hyperparameter_tuning.py", line 297, in objective
+    train(model, optimizer)
+  File "hyperparameter_tuning.py", line 236, in train
+    output = network(data.to(device))                     # Forward propagation
+  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "hyperparameter_tuning.py", line 217, in forward
+    x = self.Linear1(x)
+  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (131x8 and 1048x5)
+Data loaded
+Traceback (most recent call last):
+  File "hyperparameter_tuning.py", line 323, in <module>
+    study.optimize(objective, n_trials=number_of_trials)
+  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/study/study.py", line 409, in optimize
+    show_progress_bar=show_progress_bar,
+  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/study/_optimize.py", line 76, in _optimize
+    progress_bar=progress_bar,
+  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/study/_optimize.py", line 163, in _optimize_sequential
+    trial = _run_trial(study, func, catch)
+  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/study/_optimize.py", line 264, in _run_trial
+    raise func_err
+  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/study/_optimize.py", line 213, in _run_trial
+    value_or_values = func(trial)
+  File "hyperparameter_tuning.py", line 297, in objective
+    train(model, optimizer)
+  File "hyperparameter_tuning.py", line 236, in train
+    output = network(data.to(device))                     # Forward propagation
+  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "hyperparameter_tuning.py", line 217, in forward
+    x = self.Linear1(x)
+  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (131x8 and 1048x5)

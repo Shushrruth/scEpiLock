@@ -7,8 +7,8 @@ import torch.nn.functional as F
 import torch.optim as optim
 import torch.utils.data
 from torch.utils.data import Dataset
-from torchvision import datasets
-from torchvision import transforms
+#from torchvision import datasets
+#from torchvision import transforms
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -25,10 +25,10 @@ class PreProcessor():
         #self.neg_fasta_path = data_dir + "x-centered-negatives-ENCODE-5000bpAway.fa" 
         self.label_path = data_dir + "new_lables.tsv" # y-labels
 
-    def get_ratio(df):
+    def get_ratio(self,df):
         weights = []
         for col in df.columns:
-            array = x[col].values
+            array = df[col].values
 
             weights.append(sum(array==0)/sum(array==1))
   
@@ -43,7 +43,7 @@ class PreProcessor():
 
         pos_label = label.to_numpy()
 
-        train_weights = get_ratio(label)
+        train_weights = self.get_ratio(label)
 
         #len_p = round(len(pos_fasta)/5)
         
@@ -75,17 +75,17 @@ class PreProcessor():
         data_train_temp, data_test, label_train_temp, label_test = train_test_split(data, label, test_size=test_size, random_state=12)
         data_train, data_eval, label_train, label_eval = train_test_split(data_train_temp, label_train_temp, test_size=test_size, random_state=12)
 
-        print("-----------train size concate------------")
-        print(data_train.shape) #(173775,)
-        print(label_train.shape) #(173775, 1)
+        #print("-----------train size concate------------")
+        #print(data_train.shape) #(173775,)
+        #print(label_train.shape) #(173775, 1)
 
-        print("-----------eval size concate------------")
-        print(data_eval.shape) #(19309,)
-        print(label_eval.shape) #(19309, 1)
+        #print("-----------eval size concate------------")
+        #print(data_eval.shape) #(19309,)
+        #print(label_eval.shape) #(19309, 1)
 
-        print("-----------test size concate------------")
-        print(data_test.shape) #(21454,)
-        print(label_test.shape) #(21454,) no encode: (11454, 8)
+        #print("-----------test size concate------------")
+        #print(data_test.shape) #(21454,)
+        #print(label_test.shape) #(21454,) no encode: (11454, 8)
 
         #test_size = data_test.shape[0]
 
@@ -100,9 +100,9 @@ class DataLoader(Dataset):
         # (n,) array, each element is string, dtype=object
         self.data = data # fasta of forward, no chr title, 1d np.array, shape is n
         self.label = label # cell cluster has been handled in pre-process
-        print("-----------------shape before add RC -------------") # TODO Delete the print -YG
-        print(self.data.shape)
-        print(self.label.shape)
+        #print("-----------------shape before add RC -------------") # TODO Delete the print -YG
+        #print(self.data.shape)
+        #print(self.label.shape)
 
 
         # add reverse complement
@@ -122,9 +122,9 @@ class DataLoader(Dataset):
         temp = np.array(temp, dtype=object)
         self.data = np.append(self.data, temp, axis=0)
         self.label = np.append(self.label, self.label, axis=0)
-        print("-----------------shape after subset and add RC-------------")
-        print(self.data.shape)
-        print(self.label.shape)
+        #print("-----------------shape after subset and add RC-------------")
+        #print(self.data.shape)
+        #print(self.label.shape)
 
     # The __len__ function returns the number of samples in our dataset.
     def __len__(self):
@@ -227,6 +227,7 @@ def train(network, optimizer):
         - network (__main__.Net):              The CNN
         - optimizer (torch.optim.<optimizer>): The optimizer for the CNN
     """
+    network = network.to(device)
     network.train()  # Set the module in training mode (only affects certain modules)
     for (data, target) in train_data_loader:  # For each batch
 
@@ -242,6 +243,8 @@ def prc_value(y_true, y_proba):
     lr_precision, lr_recall, _ = precision_recall_curve(y_true, y_proba)
     lr_auco = auc(lr_recall, lr_precision)
 
+    return lr_acuo
+
 def test(network):
     """Tests the model.
     Parameters:
@@ -252,7 +255,7 @@ def test(network):
     y_pred = np.empty((0, 7))
     y_true = np.empty((0, 7))
     y_proba = np.empty((0, 7))
-
+    network = network.to(device)
     network.eval()         # Set the module in evaluation mode (only affects certain modules)
     with torch.no_grad():  # Disable gradient calculation (when you are sure that you will not call Tensor.backward())
         for (data, target) in test_loader:  # For each batch
@@ -273,13 +276,13 @@ def objective(trial):
 
 	n_epochs = 50
 	n_class = 7
-	input_dim = 1000
+	input_dim = 500
 	cnn_kernel_1 = trial.suggest_int("cnn_kernel_1", 4, 20)
 	cnn_kernel_2 = trial.suggest_int("cnn_kernel_2", 4, 20)
-	channel_1 = trial.suggest_int("cnn_channel_1", 100, 1000)
-	channel_2 = trial.suggest_int("cnn_channel_2", 100, 1000)
-	channel_3 = trial.suggest_int("cnn_channel_3", 100, 1000)
-	channel_4 = trial.suggest_int("cnn_channel_4", 100, 1000)
+	cnn_channel_1 = trial.suggest_int("cnn_channel_1", 100, 1000)
+	cnn_channel_2 = trial.suggest_int("cnn_channel_2", 100, 1000)
+	cnn_channel_3 = trial.suggest_int("cnn_channel_3", 100, 1000)
+	cnn_channel_4 = trial.suggest_int("cnn_channel_4", 100, 1000)
 	max_kernel = trial.suggest_int("max_kernel", 2, 8)
 	max_stride = trial.suggest_int("max_kernel", 2, 8)
 	linear = trial.suggest_int("max_kernel", 500, 1000)
@@ -303,7 +306,7 @@ def objective(trial):
 if __name__ == '__main__':
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
+    number_of_trials = 100
     data_dir = "/scratch/share/Sai/data/"
     data_class = PreProcessor(data_dir)
     data, label,train_weights = data_class.concat_data()
@@ -315,7 +318,7 @@ if __name__ == '__main__':
 
     train_loader = torch.utils.data.DataLoader(train_data_loader, batch_size=batch_size, shuffle=True)
     test_loader = torch.utils.data.DataLoader(eval_data_loader, batch_size=batch_size, shuffle=True)
-
+    print('Data loaded')
     study = optuna.create_study(direction="maximize")
     study.optimize(objective, n_trials=number_of_trials)
 
