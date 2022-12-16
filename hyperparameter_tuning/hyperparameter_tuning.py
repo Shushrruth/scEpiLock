@@ -302,27 +302,27 @@ def objective(trial):
 
 if __name__ == '__main__':
 
-	device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-	data_dir = "/scratch/share/Sai/data/"
-	data_class = PreProcessor(data_dir)
-	data, label,train_weights = data_class.concat_data()
-	data_train, data_eval, data_test, label_train, label_eval, label_test = data_class.split_train_test(data,label)
+    data_dir = "/scratch/share/Sai/data/"
+    data_class = PreProcessor(data_dir)
+    data, label,train_weights = data_class.concat_data()
+    data_train, data_eval, data_test, label_train, label_eval, label_test = data_class.split_train_test(data,label)
 
-	train_data_loader = DataLoader(data_train, label_train)
-	eval_data_loader = DataLoader(data_eval, label_eval)
-	batch_size = 128
+    train_data_loader = DataLoader(data_train, label_train)
+    eval_data_loader = DataLoader(data_eval, label_eval)
+    batch_size = 128
 
-	train_loader = torch.utils.data.DataLoader(train_data_loader, batch_size=batch_size, shuffle=True)
-	test_loader = torch.utils.data.DataLoader(eval_data_loader, batch_size=batch_size, shuffle=True)
+    train_loader = torch.utils.data.DataLoader(train_data_loader, batch_size=batch_size, shuffle=True)
+    test_loader = torch.utils.data.DataLoader(eval_data_loader, batch_size=batch_size, shuffle=True)
 
-	study = optuna.create_study(direction="maximize")
-	study.optimize(objective, n_trials=number_of_trials)
+    study = optuna.create_study(direction="maximize")
+    study.optimize(objective, n_trials=number_of_trials)
 
-	#-------------------------
-	# Results
-	#-------------------------
-	pruned_trials = study.get_trials(deepcopy=False, states=[TrialState.PRUNED])
+    #-------------------------
+    # Results
+    #-------------------------
+    pruned_trials = study.get_trials(deepcopy=False, states=[TrialState.PRUNED])
     complete_trials = study.get_trials(deepcopy=False, states=[TrialState.COMPLETE])
 
     # Display the study statistics
