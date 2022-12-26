@@ -1,48 +1,225 @@
-/var/spool/slurmd.spool/job00699/slurm_script: line 13: module: command not found
-[32m[I 2022-12-16 15:03:36,213][0m A new study created in memory with name: no-name-661b4311-a6ea-441f-b1b5-23ced65cc3e3[0m
-/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 8, 'step': 1}
+/var/spool/slurmd.spool/job00727/slurm_script: line 13: module: command not found
+[32m[I 2022-12-17 11:27:31,267][0m A new study created in memory with name: no-name-7e39b380-ff4f-4abc-9a87-18ddcc97474e[0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
   RuntimeWarning,
-[33m[W 2022-12-16 15:03:39,271][0m Trial 0 failed because of the following error: RuntimeError('mat1 and mat2 shapes cannot be multiplied (131x8 and 1048x5)')[0m
-Traceback (most recent call last):
-  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/study/_optimize.py", line 213, in _run_trial
-    value_or_values = func(trial)
-  File "hyperparameter_tuning.py", line 297, in objective
-    train(model, optimizer)
-  File "hyperparameter_tuning.py", line 236, in train
-    output = network(data.to(device))                     # Forward propagation
-  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "hyperparameter_tuning.py", line 217, in forward
-    x = self.Linear1(x)
-  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
-    return F.linear(input, self.weight, self.bias)
-RuntimeError: mat1 and mat2 shapes cannot be multiplied (131x8 and 1048x5)
-Data loaded
-Traceback (most recent call last):
-  File "hyperparameter_tuning.py", line 323, in <module>
-    study.optimize(objective, n_trials=number_of_trials)
-  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/study/study.py", line 409, in optimize
-    show_progress_bar=show_progress_bar,
-  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/study/_optimize.py", line 76, in _optimize
-    progress_bar=progress_bar,
-  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/study/_optimize.py", line 163, in _optimize_sequential
-    trial = _run_trial(study, func, catch)
-  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/study/_optimize.py", line 264, in _run_trial
-    raise func_err
-  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/study/_optimize.py", line 213, in _run_trial
-    value_or_values = func(trial)
-  File "hyperparameter_tuning.py", line 297, in objective
-    train(model, optimizer)
-  File "hyperparameter_tuning.py", line 236, in train
-    output = network(data.to(device))                     # Forward propagation
-  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "hyperparameter_tuning.py", line 217, in forward
-    x = self.Linear1(x)
-  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
-    return F.linear(input, self.weight, self.bias)
-RuntimeError: mat1 and mat2 shapes cannot be multiplied (131x8 and 1048x5)
+[32m[I 2022-12-17 13:38:10,425][0m Trial 0 finished with value: 0.6235506088694837 and parameters: {'cnn_kernel_1': 13, 'cnn_kernel_2': 9, 'cnn_channel_1': 300, 'cnn_channel_2': 900, 'cnn_channel_3': 700, 'cnn_channel_4': 1000, 'max_kernel': 4, 'dropout_l': 0.36333791119781556, 'optimizer': 'Adam', 'lr': 1.750550821000067e-05}. Best is trial 0 with value: 0.6235506088694837.[0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-17 14:39:02,512][0m Trial 1 finished with value: 0.6832518521432281 and parameters: {'cnn_kernel_1': 13, 'cnn_kernel_2': 10, 'cnn_channel_1': 200, 'cnn_channel_2': 700, 'cnn_channel_3': 500, 'cnn_channel_4': 1000, 'max_kernel': 6, 'dropout_l': 0.45501361983560557, 'optimizer': 'Adam', 'lr': 4.2313552561104294e-05}. Best is trial 1 with value: 0.6832518521432281.[0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-17 17:44:55,178][0m Trial 2 finished with value: 0.6507842191440487 and parameters: {'cnn_kernel_1': 12, 'cnn_kernel_2': 10, 'cnn_channel_1': 900, 'cnn_channel_2': 700, 'cnn_channel_3': 1000, 'cnn_channel_4': 1000, 'max_kernel': 6, 'dropout_l': 0.3404299703594482, 'optimizer': 'Adam', 'lr': 0.000150619358510125}. Best is trial 1 with value: 0.6832518521432281.[0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-17 19:08:02,753][0m Trial 3 finished with value: 0.38757249640267166 and parameters: {'cnn_kernel_1': 5, 'cnn_kernel_2': 8, 'cnn_channel_1': 500, 'cnn_channel_2': 600, 'cnn_channel_3': 300, 'cnn_channel_4': 1000, 'max_kernel': 2, 'dropout_l': 0.2682551193020516, 'optimizer': 'Adam', 'lr': 3.5980868650409616e-05}. Best is trial 1 with value: 0.6832518521432281.[0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-17 19:59:08,224][0m Trial 4 finished with value: 0.6145434757341385 and parameters: {'cnn_kernel_1': 5, 'cnn_kernel_2': 14, 'cnn_channel_1': 300, 'cnn_channel_2': 400, 'cnn_channel_3': 700, 'cnn_channel_4': 200, 'max_kernel': 4, 'dropout_l': 0.43616645297567336, 'optimizer': 'Adam', 'lr': 1.5367346847954238e-05}. Best is trial 1 with value: 0.6832518521432281.[0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-17 20:51:00,731][0m Trial 5 finished with value: 0.6461766562281904 and parameters: {'cnn_kernel_1': 7, 'cnn_kernel_2': 5, 'cnn_channel_1': 100, 'cnn_channel_2': 800, 'cnn_channel_3': 900, 'cnn_channel_4': 400, 'max_kernel': 6, 'dropout_l': 0.28406345458961046, 'optimizer': 'Adam', 'lr': 0.00019111093161431223}. Best is trial 1 with value: 0.6832518521432281.[0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-17 20:54:50,447][0m Trial 6 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-17 21:02:55,355][0m Trial 7 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-17 21:07:49,699][0m Trial 8 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-17 21:44:15,487][0m Trial 9 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-17 22:47:17,425][0m Trial 10 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 02:10:14,884][0m Trial 11 finished with value: 0.6669260098247904 and parameters: {'cnn_kernel_1': 12, 'cnn_kernel_2': 12, 'cnn_channel_1': 800, 'cnn_channel_2': 800, 'cnn_channel_3': 500, 'cnn_channel_4': 900, 'max_kernel': 6, 'dropout_l': 0.3304876990977462, 'optimizer': 'Adam', 'lr': 7.215581119461277e-05}. Best is trial 1 with value: 0.6832518521432281.[0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 02:28:43,756][0m Trial 12 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 02:33:28,978][0m Trial 13 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 06:06:30,370][0m Trial 14 finished with value: 0.6940665557201513 and parameters: {'cnn_kernel_1': 10, 'cnn_kernel_2': 12, 'cnn_channel_1': 800, 'cnn_channel_2': 1000, 'cnn_channel_3': 600, 'cnn_channel_4': 900, 'max_kernel': 6, 'dropout_l': 0.39817273696818956, 'optimizer': 'Adam', 'lr': 7.35392175267419e-05}. Best is trial 14 with value: 0.6940665557201513.[0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 06:13:25,638][0m Trial 15 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 06:16:33,346][0m Trial 16 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 06:22:24,191][0m Trial 17 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 06:37:46,645][0m Trial 18 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 06:40:52,332][0m Trial 19 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 06:55:03,753][0m Trial 20 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 07:05:02,418][0m Trial 21 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 10:34:58,016][0m Trial 22 finished with value: 0.6667183487945666 and parameters: {'cnn_kernel_1': 11, 'cnn_kernel_2': 12, 'cnn_channel_1': 900, 'cnn_channel_2': 900, 'cnn_channel_3': 400, 'cnn_channel_4': 900, 'max_kernel': 6, 'dropout_l': 0.30109999628985934, 'optimizer': 'Adam', 'lr': 6.065296495507663e-05}. Best is trial 14 with value: 0.6940665557201513.[0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 10:45:47,896][0m Trial 23 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 11:07:44,956][0m Trial 24 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 11:14:54,398][0m Trial 25 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 11:37:04,515][0m Trial 26 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 11:44:21,686][0m Trial 27 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 11:57:11,817][0m Trial 28 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 12:02:59,369][0m Trial 29 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 12:13:09,820][0m Trial 30 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 12:44:40,958][0m Trial 31 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 12:56:23,585][0m Trial 32 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 16:13:36,351][0m Trial 33 finished with value: 0.6791472388583356 and parameters: {'cnn_kernel_1': 11, 'cnn_kernel_2': 9, 'cnn_channel_1': 1000, 'cnn_channel_2': 700, 'cnn_channel_3': 400, 'cnn_channel_4': 1000, 'max_kernel': 6, 'dropout_l': 0.29339144371485004, 'optimizer': 'Adam', 'lr': 0.00013479728751205833}. Best is trial 14 with value: 0.6940665557201513.[0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 16:23:02,830][0m Trial 34 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 17:27:34,818][0m Trial 35 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 17:33:31,370][0m Trial 36 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 17:40:30,918][0m Trial 37 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 17:46:26,130][0m Trial 38 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 17:57:37,824][0m Trial 39 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 18:02:46,080][0m Trial 40 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 18:13:22,888][0m Trial 41 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 18:24:01,971][0m Trial 42 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 21:17:19,469][0m Trial 43 finished with value: 0.6663881468910491 and parameters: {'cnn_kernel_1': 12, 'cnn_kernel_2': 14, 'cnn_channel_1': 900, 'cnn_channel_2': 700, 'cnn_channel_3': 400, 'cnn_channel_4': 800, 'max_kernel': 6, 'dropout_l': 0.3211304653505585, 'optimizer': 'Adam', 'lr': 0.00010527625729581077}. Best is trial 14 with value: 0.6940665557201513.[0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-18 21:36:57,036][0m Trial 44 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 01:01:21,390][0m Trial 45 finished with value: 0.661356154336567 and parameters: {'cnn_kernel_1': 11, 'cnn_kernel_2': 15, 'cnn_channel_1': 700, 'cnn_channel_2': 1000, 'cnn_channel_3': 500, 'cnn_channel_4': 100, 'max_kernel': 6, 'dropout_l': 0.26502755983033166, 'optimizer': 'Adam', 'lr': 8.705761378610319e-05}. Best is trial 14 with value: 0.6940665557201513.[0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 01:22:02,544][0m Trial 46 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 01:24:53,150][0m Trial 47 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 01:41:24,448][0m Trial 48 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 01:44:36,180][0m Trial 49 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 01:56:17,228][0m Trial 50 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 02:05:03,801][0m Trial 51 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 05:22:49,466][0m Trial 52 finished with value: 0.6811134960894474 and parameters: {'cnn_kernel_1': 12, 'cnn_kernel_2': 16, 'cnn_channel_1': 800, 'cnn_channel_2': 800, 'cnn_channel_3': 300, 'cnn_channel_4': 900, 'max_kernel': 6, 'dropout_l': 0.3292626175789326, 'optimizer': 'Adam', 'lr': 0.0001229319638043906}. Best is trial 14 with value: 0.6940665557201513.[0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 05:31:33,979][0m Trial 53 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 05:53:25,394][0m Trial 54 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 06:03:31,373][0m Trial 55 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 06:11:51,431][0m Trial 56 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 06:14:12,349][0m Trial 57 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 06:28:17,980][0m Trial 58 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 06:45:14,624][0m Trial 59 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 06:49:26,987][0m Trial 60 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 10:25:12,074][0m Trial 61 finished with value: 0.6774101765835306 and parameters: {'cnn_kernel_1': 12, 'cnn_kernel_2': 14, 'cnn_channel_1': 1000, 'cnn_channel_2': 700, 'cnn_channel_3': 400, 'cnn_channel_4': 800, 'max_kernel': 6, 'dropout_l': 0.32678150330548955, 'optimizer': 'Adam', 'lr': 0.00010323917417365032}. Best is trial 14 with value: 0.6940665557201513.[0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 10:37:35,130][0m Trial 62 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 11:02:16,950][0m Trial 63 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 11:09:35,993][0m Trial 64 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 11:23:08,632][0m Trial 65 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 15:06:41,745][0m Trial 66 finished with value: 0.6632122408797345 and parameters: {'cnn_kernel_1': 12, 'cnn_kernel_2': 12, 'cnn_channel_1': 800, 'cnn_channel_2': 900, 'cnn_channel_3': 400, 'cnn_channel_4': 1000, 'max_kernel': 6, 'dropout_l': 0.33938179748703107, 'optimizer': 'Adam', 'lr': 0.0002323445793216502}. Best is trial 14 with value: 0.6940665557201513.[0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 15:15:52,199][0m Trial 67 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 15:21:06,949][0m Trial 68 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 15:24:15,479][0m Trial 69 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 15:36:52,809][0m Trial 70 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 15:45:43,732][0m Trial 71 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 15:54:08,486][0m Trial 72 pruned. [0m
+/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/optuna/trial/_trial.py:780: RuntimeWarning: Inconsistent parameter values for distribution with name "max_kernel"! This might be a configuration mistake. Optuna allows to call the same distribution with the same name more then once in a trial. When the parameter values are inconsistent optuna only uses the values of the first call and ignores all following. Using these values: {'low': 2, 'high': 6, 'step': 1}
+  RuntimeWarning,
+[32m[I 2022-12-19 16:03:58,957][0m Trial 73 pruned. [0m
+slurmstepd: error: *** JOB 727 ON galaxy CANCELLED AT 2022-12-19T20:04:13 ***

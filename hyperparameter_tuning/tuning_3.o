@@ -1,0 +1,170 @@
+/var/spool/slurmd.spool/job00747/slurm_script: line 13: module: command not found
+[32m[I 2022-12-19 16:25:49,442][0m A new study created in memory with name: no-name-641f18bf-a9b8-4c12-bd7b-6061e11597d3[0m
+[32m[I 2022-12-19 19:22:54,490][0m Trial 0 finished with value: 0.676429397833913 and parameters: {'cnn_kernel_1': 11, 'cnn_kernel_2': 11, 'cnn_channel_1': 1000, 'cnn_channel_2': 600, 'cnn_channel_3': 800, 'cnn_channel_4': 1000, 'max_kernel': 6, 'max_stride': 6, 'dense': 1000, 'dropout_l': 0.27598507799791383, 'optimizer': 'Adam', 'lr': 5.19927307303721e-05}. Best is trial 0 with value: 0.676429397833913.[0m
+[32m[I 2022-12-19 20:48:52,739][0m Trial 1 finished with value: 0.6835437769437667 and parameters: {'cnn_kernel_1': 8, 'cnn_kernel_2': 10, 'cnn_channel_1': 100, 'cnn_channel_2': 1000, 'cnn_channel_3': 300, 'cnn_channel_4': 400, 'max_kernel': 2, 'max_stride': 2, 'dense': 700, 'dropout_l': 0.23849558009334706, 'optimizer': 'Adam', 'lr': 3.9181983137309854e-05}. Best is trial 1 with value: 0.6835437769437667.[0m
+[32m[I 2022-12-19 22:56:38,549][0m Trial 2 finished with value: 0.6741207874889261 and parameters: {'cnn_kernel_1': 6, 'cnn_kernel_2': 15, 'cnn_channel_1': 500, 'cnn_channel_2': 600, 'cnn_channel_3': 1000, 'cnn_channel_4': 500, 'max_kernel': 3, 'max_stride': 3, 'dense': 800, 'dropout_l': 0.41361439007780376, 'optimizer': 'Adam', 'lr': 0.0001259320544069342}. Best is trial 1 with value: 0.6835437769437667.[0m
+[32m[I 2022-12-20 00:56:20,284][0m Trial 3 finished with value: 0.6502790106107217 and parameters: {'cnn_kernel_1': 4, 'cnn_kernel_2': 7, 'cnn_channel_1': 100, 'cnn_channel_2': 600, 'cnn_channel_3': 900, 'cnn_channel_4': 800, 'max_kernel': 3, 'max_stride': 2, 'dense': 1000, 'dropout_l': 0.46553474078525076, 'optimizer': 'Adam', 'lr': 0.00022228348521294}. Best is trial 1 with value: 0.6835437769437667.[0m
+[32m[I 2022-12-20 02:05:23,197][0m Trial 4 finished with value: 0.6815817569910054 and parameters: {'cnn_kernel_1': 15, 'cnn_kernel_2': 10, 'cnn_channel_1': 100, 'cnn_channel_2': 900, 'cnn_channel_3': 500, 'cnn_channel_4': 300, 'max_kernel': 5, 'max_stride': 4, 'dense': 750, 'dropout_l': 0.43484236426091816, 'optimizer': 'Adam', 'lr': 1.7378995240944323e-05}. Best is trial 1 with value: 0.6835437769437667.[0m
+[32m[I 2022-12-20 02:07:29,818][0m Trial 5 pruned. [0m
+[32m[I 2022-12-20 02:24:01,606][0m Trial 6 pruned. [0m
+[32m[I 2022-12-20 02:31:08,791][0m Trial 7 pruned. [0m
+[32m[I 2022-12-20 02:34:40,592][0m Trial 8 pruned. [0m
+[32m[I 2022-12-20 02:39:03,503][0m Trial 9 pruned. [0m
+[32m[I 2022-12-20 02:44:59,416][0m Trial 10 pruned. [0m
+[32m[I 2022-12-20 02:50:54,350][0m Trial 11 pruned. [0m
+[32m[I 2022-12-20 02:59:46,443][0m Trial 12 pruned. [0m
+[32m[I 2022-12-20 03:16:03,659][0m Trial 13 pruned. [0m
+[32m[I 2022-12-20 03:18:39,530][0m Trial 14 pruned. [0m
+[32m[I 2022-12-20 03:24:34,922][0m Trial 15 pruned. [0m
+[32m[I 2022-12-20 03:31:33,815][0m Trial 16 pruned. [0m
+[32m[I 2022-12-20 03:35:17,840][0m Trial 17 pruned. [0m
+[32m[I 2022-12-20 04:33:53,152][0m Trial 18 finished with value: 0.6942131628035783 and parameters: {'cnn_kernel_1': 7, 'cnn_kernel_2': 12, 'cnn_channel_1': 200, 'cnn_channel_2': 700, 'cnn_channel_3': 400, 'cnn_channel_4': 200, 'max_kernel': 5, 'max_stride': 4, 'dense': 850, 'dropout_l': 0.36253877023968195, 'optimizer': 'Adam', 'lr': 0.00015918050623543793}. Best is trial 18 with value: 0.6942131628035783.[0m
+[32m[I 2022-12-20 05:41:32,195][0m Trial 19 finished with value: 0.6593084558646936 and parameters: {'cnn_kernel_1': 7, 'cnn_kernel_2': 13, 'cnn_channel_1': 400, 'cnn_channel_2': 400, 'cnn_channel_3': 400, 'cnn_channel_4': 200, 'max_kernel': 3, 'max_stride': 2, 'dense': 850, 'dropout_l': 0.24773486816303297, 'optimizer': 'Adam', 'lr': 0.0001439070007379111}. Best is trial 18 with value: 0.6942131628035783.[0m
+[32m[I 2022-12-20 05:46:50,125][0m Trial 20 pruned. [0m
+[32m[I 2022-12-20 05:49:39,797][0m Trial 21 pruned. [0m
+[32m[I 2022-12-20 05:52:20,427][0m Trial 22 pruned. [0m
+[32m[I 2022-12-20 05:55:17,407][0m Trial 23 pruned. [0m
+[32m[I 2022-12-20 05:58:56,705][0m Trial 24 pruned. [0m
+[32m[I 2022-12-20 06:02:54,427][0m Trial 25 pruned. [0m
+[32m[I 2022-12-20 06:08:52,594][0m Trial 26 pruned. [0m
+[32m[I 2022-12-20 06:17:26,138][0m Trial 27 pruned. [0m
+[32m[I 2022-12-20 06:27:18,114][0m Trial 28 pruned. [0m
+[32m[I 2022-12-20 06:29:57,215][0m Trial 29 pruned. [0m
+[32m[I 2022-12-20 06:32:23,277][0m Trial 30 pruned. [0m
+[32m[I 2022-12-20 06:42:19,450][0m Trial 31 pruned. [0m
+[32m[I 2022-12-20 06:48:36,217][0m Trial 32 pruned. [0m
+[32m[I 2022-12-20 06:55:41,826][0m Trial 33 pruned. [0m
+[32m[I 2022-12-20 07:10:40,438][0m Trial 34 pruned. [0m
+[32m[I 2022-12-20 07:19:13,922][0m Trial 35 pruned. [0m
+[32m[I 2022-12-20 07:23:17,464][0m Trial 36 pruned. [0m
+[32m[I 2022-12-20 07:28:57,908][0m Trial 37 pruned. [0m
+[32m[I 2022-12-20 07:31:54,640][0m Trial 38 pruned. [0m
+[32m[I 2022-12-20 07:39:18,136][0m Trial 39 pruned. [0m
+[32m[I 2022-12-20 07:41:57,135][0m Trial 40 pruned. [0m
+[32m[I 2022-12-20 07:49:38,672][0m Trial 41 pruned. [0m
+[32m[I 2022-12-20 08:06:44,275][0m Trial 42 pruned. [0m
+[32m[I 2022-12-20 08:11:08,216][0m Trial 43 pruned. [0m
+[32m[I 2022-12-20 08:17:37,812][0m Trial 44 pruned. [0m
+[32m[I 2022-12-20 08:21:32,569][0m Trial 45 pruned. [0m
+[32m[I 2022-12-20 08:55:20,373][0m Trial 46 pruned. [0m
+[32m[I 2022-12-20 09:07:50,313][0m Trial 47 pruned. [0m
+[32m[I 2022-12-20 09:10:25,792][0m Trial 48 pruned. [0m
+[32m[I 2022-12-20 09:13:43,243][0m Trial 49 pruned. [0m
+[32m[I 2022-12-20 09:19:53,695][0m Trial 50 pruned. [0m
+[32m[I 2022-12-20 09:23:11,527][0m Trial 51 pruned. [0m
+[32m[I 2022-12-20 09:37:19,941][0m Trial 52 pruned. [0m
+[32m[I 2022-12-20 10:44:40,071][0m Trial 53 finished with value: 0.6540952976187464 and parameters: {'cnn_kernel_1': 8, 'cnn_kernel_2': 12, 'cnn_channel_1': 400, 'cnn_channel_2': 400, 'cnn_channel_3': 300, 'cnn_channel_4': 200, 'max_kernel': 3, 'max_stride': 2, 'dense': 700, 'dropout_l': 0.2526388960748912, 'optimizer': 'Adam', 'lr': 0.00012181588210985312}. Best is trial 18 with value: 0.6942131628035783.[0m
+[32m[I 2022-12-20 10:54:48,996][0m Trial 54 pruned. [0m
+[32m[I 2022-12-20 10:58:41,596][0m Trial 55 pruned. [0m
+[32m[I 2022-12-20 11:03:16,357][0m Trial 56 pruned. [0m
+[32m[I 2022-12-20 11:06:56,453][0m Trial 57 pruned. [0m
+[32m[I 2022-12-20 11:09:03,675][0m Trial 58 pruned. [0m
+[32m[I 2022-12-20 11:13:28,189][0m Trial 59 pruned. [0m
+[32m[I 2022-12-20 11:18:22,167][0m Trial 60 pruned. [0m
+[32m[I 2022-12-20 12:30:23,484][0m Trial 61 finished with value: 0.6463387952811809 and parameters: {'cnn_kernel_1': 9, 'cnn_kernel_2': 12, 'cnn_channel_1': 400, 'cnn_channel_2': 400, 'cnn_channel_3': 300, 'cnn_channel_4': 200, 'max_kernel': 3, 'max_stride': 2, 'dense': 700, 'dropout_l': 0.21095832307434753, 'optimizer': 'Adam', 'lr': 0.00012350115219611222}. Best is trial 18 with value: 0.6942131628035783.[0m
+[32m[I 2022-12-20 13:44:45,594][0m Trial 62 finished with value: 0.6862380541777202 and parameters: {'cnn_kernel_1': 8, 'cnn_kernel_2': 12, 'cnn_channel_1': 500, 'cnn_channel_2': 400, 'cnn_channel_3': 300, 'cnn_channel_4': 200, 'max_kernel': 3, 'max_stride': 2, 'dense': 700, 'dropout_l': 0.23592660658235365, 'optimizer': 'Adam', 'lr': 8.156192832553892e-05}. Best is trial 18 with value: 0.6942131628035783.[0m
+[32m[I 2022-12-20 15:08:07,572][0m Trial 63 finished with value: 0.6818479381571789 and parameters: {'cnn_kernel_1': 8, 'cnn_kernel_2': 11, 'cnn_channel_1': 500, 'cnn_channel_2': 500, 'cnn_channel_3': 400, 'cnn_channel_4': 200, 'max_kernel': 3, 'max_stride': 2, 'dense': 700, 'dropout_l': 0.23637619331349918, 'optimizer': 'Adam', 'lr': 7.634715519742954e-05}. Best is trial 18 with value: 0.6942131628035783.[0m
+[32m[I 2022-12-20 15:12:57,583][0m Trial 64 pruned. [0m
+[32m[I 2022-12-20 15:18:13,239][0m Trial 65 pruned. [0m
+[32m[I 2022-12-20 15:31:30,933][0m Trial 66 pruned. [0m
+[32m[I 2022-12-20 16:35:11,688][0m Trial 67 finished with value: 0.6695170039936723 and parameters: {'cnn_kernel_1': 8, 'cnn_kernel_2': 9, 'cnn_channel_1': 100, 'cnn_channel_2': 700, 'cnn_channel_3': 600, 'cnn_channel_4': 400, 'max_kernel': 4, 'max_stride': 3, 'dense': 700, 'dropout_l': 0.21818299805529132, 'optimizer': 'Adam', 'lr': 8.75142405318216e-05}. Best is trial 18 with value: 0.6942131628035783.[0m
+[32m[I 2022-12-20 16:40:41,157][0m Trial 68 pruned. [0m
+[32m[I 2022-12-20 16:45:55,423][0m Trial 69 pruned. [0m
+[32m[I 2022-12-20 16:48:13,193][0m Trial 70 pruned. [0m
+[32m[I 2022-12-20 17:57:39,412][0m Trial 71 finished with value: 0.6606903380807068 and parameters: {'cnn_kernel_1': 8, 'cnn_kernel_2': 9, 'cnn_channel_1': 100, 'cnn_channel_2': 700, 'cnn_channel_3': 700, 'cnn_channel_4': 400, 'max_kernel': 4, 'max_stride': 3, 'dense': 700, 'dropout_l': 0.21794159959375192, 'optimizer': 'Adam', 'lr': 8.646670136761933e-05}. Best is trial 18 with value: 0.6942131628035783.[0m
+[32m[I 2022-12-20 19:15:14,769][0m Trial 72 finished with value: 0.6758554424566173 and parameters: {'cnn_kernel_1': 9, 'cnn_kernel_2': 8, 'cnn_channel_1': 200, 'cnn_channel_2': 700, 'cnn_channel_3': 600, 'cnn_channel_4': 500, 'max_kernel': 5, 'max_stride': 3, 'dense': 650, 'dropout_l': 0.20997717512818187, 'optimizer': 'Adam', 'lr': 6.245461981246109e-05}. Best is trial 18 with value: 0.6942131628035783.[0m
+[32m[I 2022-12-20 19:18:53,452][0m Trial 73 pruned. [0m
+[32m[I 2022-12-20 19:22:21,470][0m Trial 74 pruned. [0m
+[32m[I 2022-12-20 19:26:32,882][0m Trial 75 pruned. [0m
+[32m[I 2022-12-20 19:31:38,623][0m Trial 76 pruned. [0m
+[32m[I 2022-12-20 19:34:11,230][0m Trial 77 pruned. [0m
+[32m[I 2022-12-20 19:39:53,559][0m Trial 78 pruned. [0m
+[32m[I 2022-12-20 23:39:20,739][0m Trial 79 finished with value: 0.6646026982394125 and parameters: {'cnn_kernel_1': 7, 'cnn_kernel_2': 12, 'cnn_channel_1': 800, 'cnn_channel_2': 1000, 'cnn_channel_3': 900, 'cnn_channel_4': 900, 'max_kernel': 3, 'max_stride': 3, 'dense': 550, 'dropout_l': 0.2001113099205854, 'optimizer': 'Adam', 'lr': 7.843886116647843e-05}. Best is trial 18 with value: 0.6942131628035783.[0m
+[32m[I 2022-12-20 23:43:44,428][0m Trial 80 pruned. [0m
+[32m[I 2022-12-20 23:46:56,600][0m Trial 81 pruned. [0m
+[32m[I 2022-12-21 00:47:08,649][0m Trial 82 finished with value: 0.6777296216950721 and parameters: {'cnn_kernel_1': 8, 'cnn_kernel_2': 8, 'cnn_channel_1': 100, 'cnn_channel_2': 700, 'cnn_channel_3': 600, 'cnn_channel_4': 400, 'max_kernel': 4, 'max_stride': 3, 'dense': 700, 'dropout_l': 0.2227530872283014, 'optimizer': 'Adam', 'lr': 0.00014062838930479444}. Best is trial 18 with value: 0.6942131628035783.[0m
+[32m[I 2022-12-21 01:43:21,335][0m Trial 83 finished with value: 0.6793214924796268 and parameters: {'cnn_kernel_1': 8, 'cnn_kernel_2': 7, 'cnn_channel_1': 100, 'cnn_channel_2': 800, 'cnn_channel_3': 500, 'cnn_channel_4': 300, 'max_kernel': 5, 'max_stride': 3, 'dense': 650, 'dropout_l': 0.23443894851460298, 'optimizer': 'Adam', 'lr': 0.00014049326296256234}. Best is trial 18 with value: 0.6942131628035783.[0m
+[32m[I 2022-12-21 02:37:18,149][0m Trial 84 finished with value: 0.6856471150693446 and parameters: {'cnn_kernel_1': 8, 'cnn_kernel_2': 6, 'cnn_channel_1': 100, 'cnn_channel_2': 800, 'cnn_channel_3': 500, 'cnn_channel_4': 300, 'max_kernel': 5, 'max_stride': 3, 'dense': 650, 'dropout_l': 0.23456537435497685, 'optimizer': 'Adam', 'lr': 0.00013828232655125675}. Best is trial 18 with value: 0.6942131628035783.[0m
+[32m[I 2022-12-21 03:27:46,522][0m Trial 85 finished with value: 0.6812854060882988 and parameters: {'cnn_kernel_1': 8, 'cnn_kernel_2': 6, 'cnn_channel_1': 100, 'cnn_channel_2': 800, 'cnn_channel_3': 500, 'cnn_channel_4': 300, 'max_kernel': 5, 'max_stride': 4, 'dense': 600, 'dropout_l': 0.2322608112795085, 'optimizer': 'Adam', 'lr': 0.00015411134207379585}. Best is trial 18 with value: 0.6942131628035783.[0m
+[32m[I 2022-12-21 04:18:23,483][0m Trial 86 finished with value: 0.6844138422935213 and parameters: {'cnn_kernel_1': 8, 'cnn_kernel_2': 6, 'cnn_channel_1': 100, 'cnn_channel_2': 800, 'cnn_channel_3': 500, 'cnn_channel_4': 300, 'max_kernel': 5, 'max_stride': 4, 'dense': 600, 'dropout_l': 0.2355637577843972, 'optimizer': 'Adam', 'lr': 0.00019973236731526874}. Best is trial 18 with value: 0.6942131628035783.[0m
+[32m[I 2022-12-21 05:08:23,082][0m Trial 87 finished with value: 0.6909994774878314 and parameters: {'cnn_kernel_1': 7, 'cnn_kernel_2': 6, 'cnn_channel_1': 100, 'cnn_channel_2': 800, 'cnn_channel_3': 500, 'cnn_channel_4': 300, 'max_kernel': 5, 'max_stride': 4, 'dense': 600, 'dropout_l': 0.2564275410731371, 'optimizer': 'Adam', 'lr': 0.000218529318203211}. Best is trial 18 with value: 0.6942131628035783.[0m
+[32m[I 2022-12-21 05:59:19,042][0m Trial 88 finished with value: 0.6922225544567758 and parameters: {'cnn_kernel_1': 7, 'cnn_kernel_2': 6, 'cnn_channel_1': 100, 'cnn_channel_2': 900, 'cnn_channel_3': 500, 'cnn_channel_4': 300, 'max_kernel': 5, 'max_stride': 4, 'dense': 600, 'dropout_l': 0.27118942371360866, 'optimizer': 'Adam', 'lr': 0.00019758632092239099}. Best is trial 18 with value: 0.6942131628035783.[0m
+[32m[I 2022-12-21 06:49:05,212][0m Trial 89 finished with value: 0.6940942224009864 and parameters: {'cnn_kernel_1': 7, 'cnn_kernel_2': 5, 'cnn_channel_1': 100, 'cnn_channel_2': 900, 'cnn_channel_3': 500, 'cnn_channel_4': 200, 'max_kernel': 5, 'max_stride': 4, 'dense': 550, 'dropout_l': 0.27131032339942, 'optimizer': 'Adam', 'lr': 0.00020080080883275162}. Best is trial 18 with value: 0.6942131628035783.[0m
+[32m[I 2022-12-21 07:38:46,165][0m Trial 90 finished with value: 0.6951564986788188 and parameters: {'cnn_kernel_1': 7, 'cnn_kernel_2': 5, 'cnn_channel_1': 100, 'cnn_channel_2': 900, 'cnn_channel_3': 500, 'cnn_channel_4': 200, 'max_kernel': 5, 'max_stride': 4, 'dense': 550, 'dropout_l': 0.2700724643822747, 'optimizer': 'Adam', 'lr': 0.00019451427792825256}. Best is trial 90 with value: 0.6951564986788188.[0m
+[32m[I 2022-12-21 08:28:38,506][0m Trial 91 finished with value: 0.6907773940177256 and parameters: {'cnn_kernel_1': 7, 'cnn_kernel_2': 5, 'cnn_channel_1': 100, 'cnn_channel_2': 900, 'cnn_channel_3': 500, 'cnn_channel_4': 200, 'max_kernel': 5, 'max_stride': 4, 'dense': 550, 'dropout_l': 0.25617893707408895, 'optimizer': 'Adam', 'lr': 0.00023938364218760395}. Best is trial 90 with value: 0.6951564986788188.[0m
+[32m[I 2022-12-21 09:17:50,027][0m Trial 92 finished with value: 0.6970208652081694 and parameters: {'cnn_kernel_1': 7, 'cnn_kernel_2': 4, 'cnn_channel_1': 100, 'cnn_channel_2': 900, 'cnn_channel_3': 500, 'cnn_channel_4': 200, 'max_kernel': 5, 'max_stride': 4, 'dense': 550, 'dropout_l': 0.2713009536990827, 'optimizer': 'Adam', 'lr': 0.00019739753675831855}. Best is trial 92 with value: 0.6970208652081694.[0m
+[32m[I 2022-12-21 10:07:03,590][0m Trial 93 finished with value: 0.6911921872285169 and parameters: {'cnn_kernel_1': 7, 'cnn_kernel_2': 4, 'cnn_channel_1': 100, 'cnn_channel_2': 900, 'cnn_channel_3': 500, 'cnn_channel_4': 200, 'max_kernel': 5, 'max_stride': 4, 'dense': 550, 'dropout_l': 0.26574253681823495, 'optimizer': 'Adam', 'lr': 0.00019787805061968533}. Best is trial 92 with value: 0.6970208652081694.[0m
+[32m[I 2022-12-21 10:14:24,829][0m Trial 94 pruned. [0m
+[32m[I 2022-12-21 11:04:26,239][0m Trial 95 finished with value: 0.6966528855862562 and parameters: {'cnn_kernel_1': 6, 'cnn_kernel_2': 5, 'cnn_channel_1': 100, 'cnn_channel_2': 900, 'cnn_channel_3': 500, 'cnn_channel_4': 200, 'max_kernel': 5, 'max_stride': 4, 'dense': 550, 'dropout_l': 0.28778309669906477, 'optimizer': 'Adam', 'lr': 0.00032401294918796807}. Best is trial 92 with value: 0.6970208652081694.[0m
+[32m[I 2022-12-21 11:09:26,572][0m Trial 96 pruned. [0m
+[32m[I 2022-12-21 11:12:13,330][0m Trial 97 pruned. [0m
+[32m[I 2022-12-21 11:17:55,523][0m Trial 98 pruned. [0m
+[32m[I 2022-12-21 11:23:06,775][0m Trial 99 pruned. [0m
+Data loaded
+
+Study statistics: 
+  Number of finished trials:  100
+  Number of pruned trials:  72
+  Number of complete trials:  28
+Best trial:
+  Value:  0.6970208652081694
+  Params: 
+    cnn_kernel_1: 7
+    cnn_kernel_2: 4
+    cnn_channel_1: 100
+    cnn_channel_2: 900
+    cnn_channel_3: 500
+    cnn_channel_4: 200
+    max_kernel: 5
+    max_stride: 4
+    dense: 550
+    dropout_l: 0.2713009536990827
+    optimizer: Adam
+    lr: 0.00019739753675831855
+
+Overall Results (ordered by accuracy):
+     number     value  ...  params_max_stride  params_optimizer
+61      61  0.646339  ...                  2              Adam
+3        3  0.650279  ...                  2              Adam
+53      53  0.654095  ...                  2              Adam
+19      19  0.659308  ...                  2              Adam
+71      71  0.660690  ...                  3              Adam
+79      79  0.664603  ...                  3              Adam
+67      67  0.669517  ...                  3              Adam
+2        2  0.674121  ...                  3              Adam
+72      72  0.675855  ...                  3              Adam
+0        0  0.676429  ...                  6              Adam
+82      82  0.677730  ...                  3              Adam
+83      83  0.679321  ...                  3              Adam
+85      85  0.681285  ...                  4              Adam
+4        4  0.681582  ...                  4              Adam
+63      63  0.681848  ...                  2              Adam
+1        1  0.683544  ...                  2              Adam
+86      86  0.684414  ...                  4              Adam
+84      84  0.685647  ...                  3              Adam
+62      62  0.686238  ...                  2              Adam
+91      91  0.690777  ...                  4              Adam
+87      87  0.690999  ...                  4              Adam
+93      93  0.691192  ...                  4              Adam
+88      88  0.692223  ...                  4              Adam
+89      89  0.694094  ...                  4              Adam
+18      18  0.694213  ...                  4              Adam
+90      90  0.695156  ...                  4              Adam
+95      95  0.696653  ...                  4              Adam
+92      92  0.697021  ...                  4              Adam
+
+[28 rows x 14 columns]
+
+Most important hyperparameters:
+  max_kernel:     26.40%
+  lr:             12.95%
+  max_stride:     11.05%
+  cnn_kernel_2:   10.64%
+  cnn_channel_2:  10.00%
+  cnn_channel_1:  8.31%
+  cnn_kernel_1:   6.35%
+  dropout_l:      6.04%
+  cnn_channel_3:  5.69%
+  cnn_channel_4:  2.23%
+  dense:          0.32%
+  optimizer:      0.00%

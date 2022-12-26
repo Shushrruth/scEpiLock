@@ -12,8 +12,15 @@ from torch.utils.data import Dataset
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
-
-
+from sklearn.metrics import precision_recall_curve
+from sklearn.metrics import f1_score
+from sklearn.metrics import auc
+from matplotlib import pyplot
+from sklearn.metrics import roc_auc_score
+from tqdm import tqdm
+import copy
+import os
+import numpy as np
 
 ###### Getting and Loading the Data ########
 
@@ -21,7 +28,7 @@ class PreProcessor():
 
     def __init__(self, data_dir):
 
-        self.pos_fasta_path = data_dir + "union_peaks.fa" # X-centered pos
+        self.pos_fasta_path = data_dir + "union_peaks_1000.fa" # X-centered pos
         #self.neg_fasta_path = data_dir + "x-centered-negatives-ENCODE-5000bpAway.fa" 
         self.label_path = data_dir + "new_lables.tsv" # y-labels
 
@@ -158,8 +165,8 @@ class DataLoader(Dataset):
 def define_model(trial):
 
 	in_features = 4*1000
-	cnn_kernel_1 = trial.suggest_int("cnn_kernel_1", 4, 20)
-	cnn_kernel_2 = trial.suggest_int("cnn_kernel_2", 4, 20)
+	cnn_kernel_1 = trial.suggest_int("cnn_kernel_1", 4, 16)
+	cnn_kernel_2 = trial.suggest_int("cnn_kernel_2", 4, 16)
 	channel_1 = trial.suggest_int("cnn_channel_1", 100, 1000)
 	channel_2 = trial.suggest_int("cnn_channel_2", 100, 1000)
 	channel_3 = trial.suggest_int("cnn_channel_3", 100, 1000)
@@ -184,9 +191,9 @@ class scEpiLock(nn.Module):
         self.Drop = nn.Dropout(p=drop)
 
 
-        self.dense_1 = (((input_dim - 2*cnn_kernel_1 + 2) - max_kernel)//max_stride) + 1
-        self.dense_1 = (((self.dense_1 - cnn_kernel_2 +1) - max_kernel)//max_stride) - cnn_kernel_2 + 2
-
+        self.dense_1 = int(((input_dim - 2*cnn_kernel_1 + 2) - max_kernel)//max_stride) + 1
+        self.dense_1 = int(((self.dense_1 - cnn_kernel_2 +1) - max_kernel)//max_stride) - cnn_kernel_2 + 2
+        #print(self.dense_1)
 
         self.Linear1 = nn.Linear(self.dense_1*cnn_channel_4, linear)
         self.Linear2 = nn.Linear(linear, n_class)
@@ -211,8 +218,9 @@ class scEpiLock(nn.Module):
         x = self.Conv4(x)
         x = F.relu(x)
         x = self.Drop(x)
-
+        #print(x.shape)
         x = torch.flatten(x,1)
+        #print(x.shape)
         x = self.Drop(x)
         x = self.Linear1(x)
         x = F.relu(x)
@@ -227,14 +235,15 @@ def train(network, optimizer):
         - network (__main__.Net):              The CNN
         - optimizer (torch.optim.<optimizer>): The optimizer for the CNN
     """
+    criterion = nn.BCEWithLogitsLoss().to(device)
     network = network.to(device)
     network.train()  # Set the module in training mode (only affects certain modules)
-    for (data, target) in train_data_loader:  # For each batch
+    for (data, target) in train_loader:  # For each batch
 
 
         optimizer.zero_grad()                                 # Clear gradients
         output = network(data.to(device))                     # Forward propagation
-        loss = F.nll_loss(output, target.to(device))          # Compute loss (negative log likelihood: −log(y))
+        loss = criterion(output, target.to(device))          # Compute loss (negative log likelihood: −log(y))
         loss.backward()                                       # Compute gradients
         optimizer.step()  
 
@@ -243,7 +252,7 @@ def prc_value(y_true, y_proba):
     lr_precision, lr_recall, _ = precision_recall_curve(y_true, y_proba)
     lr_auco = auc(lr_recall, lr_precision)
 
-    return lr_acuo
+    return lr_auco
 
 def test(network):
     """Tests the model.
@@ -268,29 +277,29 @@ def test(network):
             y_true = np.concatenate((y_true, target.cpu().numpy()))
             y_pred = np.concatenate((y_pred, output.cpu().numpy()))
 
-    prc_value = prc_value(y_true,y_pred)
+    prc = prc_value(y_true.flatten(),y_pred.flatten())
 
-    return prc_value 
+    return prc
 
 def objective(trial):
 
-	n_epochs = 50
+	n_epochs = 20
 	n_class = 7
-	input_dim = 500
-	cnn_kernel_1 = trial.suggest_int("cnn_kernel_1", 4, 20)
-	cnn_kernel_2 = trial.suggest_int("cnn_kernel_2", 4, 20)
-	cnn_channel_1 = trial.suggest_int("cnn_channel_1", 100, 1000)
-	cnn_channel_2 = trial.suggest_int("cnn_channel_2", 100, 1000)
-	cnn_channel_3 = trial.suggest_int("cnn_channel_3", 100, 1000)
-	cnn_channel_4 = trial.suggest_int("cnn_channel_4", 100, 1000)
-	max_kernel = trial.suggest_int("max_kernel", 2, 8)
-	max_stride = trial.suggest_int("max_kernel", 2, 8)
-	linear = trial.suggest_int("max_kernel", 500, 1000)
+	input_dim = 1000
+	cnn_kernel_1 = trial.suggest_int("cnn_kernel_1", 4, 16,1)
+	cnn_kernel_2 = trial.suggest_int("cnn_kernel_2", 4, 16,1)
+	cnn_channel_1 = trial.suggest_int("cnn_channel_1", 100, 1000,100)
+	cnn_channel_2 = trial.suggest_int("cnn_channel_2", 100, 1000,100)
+	cnn_channel_3 = trial.suggest_int("cnn_channel_3", 100, 1000,100)
+	cnn_channel_4 = trial.suggest_int("cnn_channel_4", 100, 1000,100)
+	max_kernel = trial.suggest_int("max_kernel", 2, 6,1)
+	max_stride = trial.suggest_int("max_stride", 2, 6,1)
+	linear = trial.suggest_int("dense", 500, 1000,50)
 	drop = trial.suggest_float("dropout_l", 0.2, 0.5)
 
 	model = scEpiLock(n_class,input_dim,cnn_kernel_1, cnn_kernel_2,cnn_channel_1,cnn_channel_2,cnn_channel_3,cnn_channel_4,max_kernel, max_stride,linear,drop)
-	optimizer_name = trial.suggest_categorical("optimizer", ["Adam", "RMSprop", "SGD"])
-	lr = trial.suggest_float("lr", 1e-5, 1e-1, log=True)  
+	optimizer_name = trial.suggest_categorical("optimizer", ["Adam"])
+	lr = trial.suggest_float("lr", 1e-5, 1e-3, log=True)  
 	optimizer = getattr(optim, optimizer_name)(model.parameters(), lr=lr)
 
 	for epoch in range(n_epochs):
@@ -346,7 +355,7 @@ if __name__ == '__main__':
     df = df.loc[df['state'] == 'COMPLETE']        # Keep only results that did not prune
     df = df.drop('state', axis=1)                 # Exclude state column
     df = df.sort_values('value')                  # Sort based on accuracy
-    df.to_csv('/scratch/share/Sai/projects/scEpiLock/hyperparameter_tuning/results.tsv', sep='\t',index=False)  # Save to csv file
+    df.to_csv('/scratch/share/Sai/projects/scEpiLock/hyperparameter_tuning/results_full.tsv', sep='\t',index=False)  # Save to csv file
 
     # Display results in a dataframe
     print("\nOverall Results (ordered by accuracy):\n {}".format(df))

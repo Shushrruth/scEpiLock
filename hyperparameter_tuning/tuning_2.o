@@ -1,0 +1,3 @@
+/var/spool/slurmd.spool/job00743/slurm_script: line 13: module: command not found
+[32m[I 2022-12-19 15:18:03,165][0m A new study created in memory with name: no-name-22167ad4-2548-48ee-b1d7-c2ebe0aa7677[0m
+slurmstepd: error: *** JOB 743 ON galaxy CANCELLED AT 2022-12-19T15:28:34 ***
