@@ -45,7 +45,7 @@ test_data_loader = DataLoader_Siam(data_test, label_test)
 
 #4 Trainer
 model_wt_path = wt_path + "model_"+run+ ".pt"
-learning_rate = 1e-5
+learning_rate = 5e-5
 epochs = 120
 batch_size = 128
 weight_decay = 0
@@ -54,14 +54,18 @@ weight_decay = 0
 #### Model hyperparams #####
 n_class = 7
 input_dim = 1000 # or 1000
-cnn_kernel = 10
-cnn_channels = 100
-max_kernel = 4
+cnn_kernel_1 = 8
+cnn_kernel_2 = 12
+cnn_channel_1 = 200
+cnn_channel_2 = 800
+cnn_channel_3 = 300
+cnn_channel_4 = 700
+max_kernel = 6
 max_stride = 4
-linear = 512
-drop = 0.5
+linear = 800
+drop = 0.3
 
-model = scEpiLock(n_class, input_dim,cnn_kernel, cnn_channels,max_kernel,max_stride,linear,drop)
+model = scEpiLock(n_class,input_dim,cnn_kernel_1,cnn_kernel_2 ,cnn_channel_1,cnn_channel_2,cnn_channel_3,cnn_channel_4,max_kernel, max_stride,linear,drop)
 
 ############################
 
