@@ -110,7 +110,7 @@ class scEpiLock_Siam(nn.Module):
         out1 = self.forward_one(x1)
         out2 = self.forward_one(x2)
 
-        outout = (out1+out2)/2
+        out = (out1+out2)/2
 
         return torch.sigmoid(out)
 

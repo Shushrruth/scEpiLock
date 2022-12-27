@@ -46,7 +46,7 @@ test_data_loader = DataLoader_Siam(data_test, label_test)
 #4 Trainer
 model_wt_path = wt_path + "model_"+run+ ".pt"
 learning_rate = 5e-5
-epochs = 120
+epochs = 80
 batch_size = 128
 weight_decay = 0
 
@@ -74,7 +74,7 @@ trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, ba
 
 
 print("train start time: ", datetime.now())
-trainer.train()
+#trainer.train()
 print("train end time: ", datetime.now())
 
 
@@ -82,8 +82,7 @@ print("train end time: ", datetime.now())
 
 test_out_dir = ct_path
 
-tester = Tester(scEpiLock_Siam(n_class, input_dim,cnn_kernel, cnn_channels,max_kernel,max_stride,linear,drop),
-     model_wt_path, test_data_loader, batch_size, n_class)
+tester = Tester(scEpiLock_Siam(n_class,input_dim,cnn_kernel_1,cnn_kernel_2 ,cnn_channel_1,cnn_channel_2,cnn_channel_3,cnn_channel_4,max_kernel, max_stride,linear,drop), model_wt_path, test_data_loader, batch_size, n_class)
 
 y_true, y_pred = tester.test()
 print('testing done')
