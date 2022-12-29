@@ -54,27 +54,27 @@ weight_decay = 0
 #### Model hyperparams #####
 n_class = 7
 input_dim = 1000 # or 1000
-cnn_kernel_1 = 8
-cnn_kernel_2 = 12
-cnn_channel_1 = 200
-cnn_channel_2 = 800
-cnn_channel_3 = 300
-cnn_channel_4 = 700
-max_kernel = 6
+cnn_kernel_1 = 10
+cnn_kernel_2 = 4
+cnn_channel_1 = 320
+cnn_channel_2 = 480
+cnn_channel_3 = 960
+cnn_channel_4 = 1024
+max_kernel = 4
 max_stride = 4
-linear = 800
-drop = 0.3
+linear = 925
+drop = 0.5
 
 model = scEpiLock(n_class,input_dim,cnn_kernel_1,cnn_kernel_2 ,cnn_channel_1,cnn_channel_2,cnn_channel_3,cnn_channel_4,max_kernel, max_stride,linear,drop)
 
 ############################
 
 trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, batch_size, 
-	learning_rate, weight_decay , '/', n_class,model, ct_path,'Yes',train_weights)
+	learning_rate, weight_decay , '/', n_class,model, ct_path,'No',train_weights)
 
 
 print("train start time: ", datetime.now())
-#trainer.train()
+trainer.train()
 print("train end time: ", datetime.now())
 
 
