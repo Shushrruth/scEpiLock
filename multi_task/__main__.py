@@ -46,14 +46,14 @@ test_data_loader = DataLoader_Siam(data_test, label_test)
 #4 Trainer
 model_wt_path = wt_path + "model_"+run+ ".pt"
 learning_rate = 5e-5
-epochs = 80
+epochs = 100
 batch_size = 128
 weight_decay = 0
 
 
 #### Model hyperparams #####
 n_class = 7
-input_dim = 1000 # or 1000
+input_dim = 500 # or 1000
 cnn_kernel_1 = 10
 cnn_kernel_2 = 4
 cnn_channel_1 = 320
