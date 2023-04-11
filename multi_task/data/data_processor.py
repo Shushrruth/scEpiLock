@@ -6,9 +6,9 @@ class PreProcessor():
 
     def __init__(self, data_dir):
 
-        self.pos_fasta_path = data_dir + "union_peaks.fa" # X-centered pos
+        self.pos_fasta_path = "/scratch/share/Sai/swarup_lab/data_1/picks_disease.fa" # X-centered pos
         self.neg_fasta_path = data_dir + "x-centered-negatives-Random-2000bpAway.fa" 
-        self.label_path = data_dir + "new_lables.tsv" # y-labels
+        self.label_path = "/scratch/share/Sai/swarup_lab/data_1/label.tsv" # y-labels
 
     def get_ratio(self,df):
         weights = []
@@ -23,8 +23,7 @@ class PreProcessor():
 
         pos_fasta = pd.read_csv(self.pos_fasta_path,sep=">chr*",header=None, engine='python').values[1::2][:,0] 
         neg_fasta = pd.read_csv(self.neg_fasta_path,sep=">chr*",header=None, engine='python').values[1::2][:,0] 
-        for i in range(len(neg_fasta)):
-            neg_fasta[i] = neg_fasta[i][250:750]
+    
         label = pd.read_csv(self.label_path, sep='\t', header=0)
 
         pos_label = label.to_numpy()

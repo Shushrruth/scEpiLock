@@ -19,8 +19,8 @@ args = parser.parse_args()
 
 run = args.run
 
-ct_path = "/scratch/share/Sai/projects/scEpiLock/multi_task/result/" + run + "/"
-wt_path = "/scratch/share/Sai/data/scEpiLock_weights/"
+ct_path = "/scratch/share/Sai/swarup_lab/projects/scEpiLock/multi_task/result/" + run + "/"
+wt_path = "/scratch/share/Sai/swarup_lab/data_1/models"
 
 if not os.path.exists(wt_path):
     os.makedirs(wt_path)
@@ -53,7 +53,7 @@ weight_decay = 0
 
 #### Model hyperparams #####
 n_class = 7
-input_dim = 500 # or 1000
+input_dim = 1000 # or 1000
 cnn_kernel_1 = 10
 cnn_kernel_2 = 4
 cnn_channel_1 = 320
@@ -74,7 +74,7 @@ trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, ba
 
 
 print("train start time: ", datetime.now())
-trainer.train()
+#trainer.train()
 print("train end time: ", datetime.now())
 
 
