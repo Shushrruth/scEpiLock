@@ -13,4 +13,4 @@
 module load anaconda
 source /pkg/anaconda3/2020.11/etc/profile.d/conda.sh
 conda activate scEpilock
-python3 multi_task 'vivek_1'
+python3 multi_task 'vivek_2'

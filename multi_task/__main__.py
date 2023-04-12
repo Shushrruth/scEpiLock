@@ -20,7 +20,7 @@ args = parser.parse_args()
 run = args.run
 
 ct_path = "/scratch/share/Sai/swarup_lab/projects/scEpiLock/multi_task/result/" + run + "/"
-wt_path = "/scratch/share/Sai/swarup_lab/data_1/models"
+wt_path = "/scratch/share/Sai/swarup_lab/data_1/models/"
 
 if not os.path.exists(wt_path):
     os.makedirs(wt_path)
@@ -46,7 +46,7 @@ test_data_loader = DataLoader_Siam(data_test, label_test)
 #4 Trainer
 model_wt_path = wt_path + "model_"+run+ ".pt"
 learning_rate = 5e-5
-epochs = 100
+epochs = 20
 batch_size = 128
 weight_decay = 0
 
@@ -70,11 +70,11 @@ model = scEpiLock(n_class,input_dim,cnn_kernel_1,cnn_kernel_2 ,cnn_channel_1,cnn
 ############################
 
 trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, batch_size, 
-	learning_rate, weight_decay , '/', n_class,model, ct_path,'No',train_weights)
+	learning_rate, weight_decay , '/', n_class,model, ct_path,'Yes',train_weights)
 
 
 print("train start time: ", datetime.now())
-#trainer.train()
+trainer.train()
 print("train end time: ", datetime.now())
 
 

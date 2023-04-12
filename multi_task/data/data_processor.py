@@ -28,7 +28,7 @@ class PreProcessor():
 
         pos_label = label.to_numpy()
 
-        #train_weights = self.get_ratio(label)
+        train_weights = self.get_ratio(label)
 
         len_p = round(len(pos_fasta))
         
