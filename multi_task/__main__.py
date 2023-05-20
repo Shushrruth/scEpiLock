@@ -1,6 +1,6 @@
 from data.data_processor import PreProcessor
 from data.data_loader import DataLoader, DataLoader_Siam
-from model.model import scEpiLock, scEpiLock_Siam
+from model.model_1 import scEpiLock
 from train.trainer import Trainer
 from train.tester import Tester 
 import torch
@@ -36,18 +36,18 @@ data_train, data_eval, data_test, label_train, label_eval, label_test = data_cla
 
 #3 Loading and one-hot-encoding
 
-train_data_loader = DataLoader(data_train, label_train)
-eval_data_loader = DataLoader(data_eval, label_eval)
-
+#train_data_loader = DataLoader(data_train, label_train)
+#eval_data_loader = DataLoader(data_eval, label_eval)
+print('Loading')
 
 test_data_loader = DataLoader_Siam(data_test, label_test)
-
+print('done')
 
 #4 Trainer
 model_wt_path = wt_path + "model_"+run+ ".pt"
 learning_rate = 5e-5
-epochs = 100
-batch_size = 128
+epochs = 20
+batch_size = 32
 weight_decay = 0
 
 
@@ -65,16 +65,15 @@ max_stride = 4
 linear = 925
 drop = 0.5
 
-model = scEpiLock(n_class,input_dim,cnn_kernel_1,cnn_kernel_2 ,cnn_channel_1,cnn_channel_2,cnn_channel_3,cnn_channel_4,max_kernel, max_stride,linear,drop)
-
+#model = scEpiLock(n_class,input_dim,cnn_kernel_1,cnn_kernel_2 ,cnn_channel_1,cnn_channel_2,cnn_channel_3,cnn_channel_4,max_kernel, max_stride,linear,drop)
+model = scEpiLock(n_class)
 ############################
 
-trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, batch_size, 
-	learning_rate, weight_decay , '/', n_class,model, ct_path,'No',train_weights)
+#trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, batch_size, learning_rate, weight_decay , '/', n_class,model, ct_path,'No',train_weights)
 
 
 print("train start time: ", datetime.now())
-trainer.train()
+#trainer.train()
 print("train end time: ", datetime.now())
 
 
@@ -82,7 +81,7 @@ print("train end time: ", datetime.now())
 
 test_out_dir = ct_path
 
-tester = Tester(scEpiLock_Siam(n_class,input_dim,cnn_kernel_1,cnn_kernel_2 ,cnn_channel_1,cnn_channel_2,cnn_channel_3,cnn_channel_4,max_kernel, max_stride,linear,drop), model_wt_path, test_data_loader, batch_size, n_class)
+tester = Tester(model, model_wt_path, test_data_loader, batch_size, n_class)
 
 y_true, y_pred = tester.test()
 print('testing done')

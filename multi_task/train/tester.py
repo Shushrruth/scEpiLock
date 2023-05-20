@@ -43,7 +43,7 @@ class Tester():
                 #optimizer.zero_grad() 
                 X1,X2, y = X1.to(device), X2.to(device),y.to(device)
 
-                output = model(X1.float(), X2.float())
+                output = model.forward_one(X1.float(), X2.float())
 
                 y_hat = output
                 y = y.float()
