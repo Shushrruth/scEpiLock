@@ -4,11 +4,12 @@ from sklearn.model_selection import train_test_split
 
 class PreProcessor():
 
-    def __init__(self, data_dir):
+    def __init__(self, data_dir,leng):
 
-        self.pos_fasta_path = data_dir + "union_peaks.fa" # X-centered pos
-        #self.neg_fasta_path = data_dir + "x-centered-negatives-Random-2000bpAway.fa" 
+        self.pos_fasta_path = data_dir + "union_peaks_1000.fa" # X-centered pos
+        self.neg_fasta_path = data_dir + "x-centered-negatives-Random-2000bpAway.fa" 
         self.label_path = data_dir + "new_lables.tsv" # y-labels
+        self.leng = leng
 
     def get_ratio(self,df):
         weights = []
@@ -22,9 +23,12 @@ class PreProcessor():
     def concat_data(self):
 
         pos_fasta = pd.read_csv(self.pos_fasta_path,sep=">chr*",header=None, engine='python').values[1::2][:,0] 
-        #neg_fasta = pd.read_csv(self.neg_fasta_path,sep=">chr*",header=None, engine='python').values[1::2][:,0] 
-        #for i in range(len(neg_fasta)):
-        #neg_fasta[i] = neg_fasta[i][250:750]
+        #neg_fasta = pd.read_csv(self.neg_fasta_path,sep=">chr*",header=None, engine='python').values[1::2][:,0]
+        
+        xx = int(self.leng/2)
+        print(xx)
+        for i in range(len(pos_fasta)):
+            pos_fasta[i] = pos_fasta[i][500 - xx:500+xx]
         label = pd.read_csv(self.label_path, sep='\t', header=0)
 
         pos_label = label.to_numpy()

@@ -1,6 +1,7 @@
 from data.data_processor import PreProcessor
 from data.data_loader import DataLoader, DataLoader_Siam
-from model.model_1 import scEpiLock
+from model.model import scEpiLock, scEpiLock_Siam
+from model.spliceAI import SpliceAI_10k
 from train.trainer import Trainer
 from train.tester import Tester 
 import torch
@@ -30,30 +31,40 @@ if not os.path.exists(ct_path):
 #2 Reading and Processing and Loading the data 
 
 data_dir = "/scratch/share/Sai/data/"
-data_class = PreProcessor(data_dir)
+print(int(run))
+data_class = PreProcessor(data_dir,int(run))
 data, label,train_weights = data_class.concat_data()
 data_train, data_eval, data_test, label_train, label_eval, label_test = data_class.split_train_test(data,label)
 
+print("Seq len is", len(data[0]))
 #3 Loading and one-hot-encoding
 
-#train_data_loader = DataLoader(data_train, label_train)
-#eval_data_loader = DataLoader(data_eval, label_eval)
+
+
+train_data_loader = DataLoader(data_train, label_train)
+eval_data_loader = DataLoader(data_eval, label_eval)
 print('Loading')
+
+print(train_data_loader[1])
+print(eval_data_loader[1])
+
 
 test_data_loader = DataLoader_Siam(data_test, label_test)
 print('done')
 
+print(test_data_loader[1])
+
 #4 Trainer
 model_wt_path = wt_path + "model_"+run+ ".pt"
 learning_rate = 5e-5
-epochs = 20
-batch_size = 32
+epochs = 1
+batch_size = 64
 weight_decay = 0
 
 
 #### Model hyperparams #####
 n_class = 7
-input_dim = 500 # or 1000
+input_dim = int(run) # or 1000
 cnn_kernel_1 = 10
 cnn_kernel_2 = 4
 cnn_channel_1 = 320
@@ -65,15 +76,16 @@ max_stride = 4
 linear = 925
 drop = 0.5
 
-#model = scEpiLock(n_class,input_dim,cnn_kernel_1,cnn_kernel_2 ,cnn_channel_1,cnn_channel_2,cnn_channel_3,cnn_channel_4,max_kernel, max_stride,linear,drop)
-model = scEpiLock(n_class)
+model = scEpiLock(n_class,input_dim,cnn_kernel_1,cnn_kernel_2 ,cnn_channel_1,cnn_channel_2,cnn_channel_3,cnn_channel_4,max_kernel, max_stride,linear,drop)
+#model = scEpiLock(n_class)
+#model = SpliceAI_10k(n_class)
 ############################
 
-#trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, batch_size, learning_rate, weight_decay , '/', n_class,model, ct_path,'No',train_weights)
+trainer = Trainer(train_data_loader, eval_data_loader, model_wt_path, epochs, batch_size, learning_rate, weight_decay , '/', n_class,model, ct_path,'Yes',train_weights)
 
 
 print("train start time: ", datetime.now())
-#trainer.train()
+trainer.train()
 print("train end time: ", datetime.now())
 
 
@@ -81,7 +93,8 @@ print("train end time: ", datetime.now())
 
 test_out_dir = ct_path
 
-tester = Tester(model, model_wt_path, test_data_loader, batch_size, n_class)
+model = scEpiLock_Siam(n_class,input_dim,cnn_kernel_1,cnn_kernel_2 ,cnn_channel_1,cnn_channel_2,cnn_channel_3,cnn_channel_4,max_kernel, max_stride,linear,drop)
+tester = Tester(model, model_wt_path, test_data_loader,10, n_class)
 
 y_true, y_pred = tester.test()
 print('testing done')

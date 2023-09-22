@@ -26,7 +26,7 @@ class Tester():
 
         test_loader = torch.utils.data.DataLoader(self.test_data, batch_size=self.batch_size, shuffle=True)
 
-        device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         model = self.model.to(device)
         model.load_state_dict(torch.load(self.model_weight_path))
 
@@ -40,10 +40,10 @@ class Tester():
 
         with torch.no_grad(): 
             for X1,X2, y in tqdm(test_loader):
-                #optimizer.zero_grad() 
+                 
                 X1,X2, y = X1.to(device), X2.to(device),y.to(device)
 
-                output = model.forward_one(X1.float(), X2.float())
+                output = model(X1.float(), X2.float())
 
                 y_hat = output
                 y = y.float()

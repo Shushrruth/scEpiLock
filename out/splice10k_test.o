@@ -1,0 +1,38 @@
+/var/spool/slurmd.spool/job08765/slurm_script: line 13: module: command not found
+  0%|          | 0/4440 [00:00<?, ?it/s]  0%|          | 0/4440 [00:03<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "multi_task/__main__.py", line 89, in <module>
+    y_true, y_pred = tester.test()
+  File "multi_task/train/tester.py", line 46, in test
+    output = model.forward_one(X1.float(), X2.float())
+  File "multi_task/model/spliceAI.py", line 148, in forward_one
+    out1 = self.forward(x1)
+  File "multi_task/model/spliceAI.py", line 117, in forward
+    x = self.conv1(x)
+  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/torch/nn/modules/conv.py", line 307, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/shushrrs/.conda/envs/scEpilock/lib/python3.7/site-packages/torch/nn/modules/conv.py", line 304, in _conv_forward
+    self.padding, self.dilation, self.groups)
+RuntimeError: Unable to find a valid cuDNN algorithm to run convolution
+-----------train size concate------------
+(359617,)
+(359617, 7)
+-----------eval size concate------------
+(39958,)
+(39958, 7)
+-----------test size concate------------
+(44398,)
+(44398, 7)
+Loading
+-----------------shape before add RC -------------
+(44398,)
+(44398, 7)
+done
+train start time:  2023-07-19 11:35:59.752712
+train end time:  2023-07-19 11:35:59.752757

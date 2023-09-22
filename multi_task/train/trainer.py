@@ -67,7 +67,7 @@ class Trainer:
             criterion = nn.BCEWithLogitsLoss().to(device)
 
 
-        optimizer = torch.optim.Adam(model.parameters(), lr=self._learning_rate, amsgrad=True, weight_decay = self._weight_decay)
+        optimizer = torch.optim.Adam(model.parameters(), lr=self._learning_rate, amsgrad=True)
 
         train_loader = torch.utils.data.DataLoader(self.train_data, batch_size=self._batch_size, shuffle=True)
         eval_loader = torch.utils.data.DataLoader(self.eval_data, batch_size=self._batch_size, shuffle=True)
@@ -86,7 +86,7 @@ class Trainer:
             for (X, y) in tqdm(train_loader):
 
                 X = X.to(device)
-                y = y.to(device) #.softmax(dim=1)
+                y = y.to(device) 
 
                 # Forward pass: Compute predicted y by passing x to the model
                 y_pred_logit = model(X) # predicted value
