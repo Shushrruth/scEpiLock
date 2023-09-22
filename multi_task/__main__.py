@@ -45,19 +45,19 @@ train_data_loader = DataLoader(data_train, label_train)
 eval_data_loader = DataLoader(data_eval, label_eval)
 print('Loading')
 
-print(train_data_loader[1])
-print(eval_data_loader[1])
+#print(train_data_loader[1])
+#print(eval_data_loader[1])
 
 
 test_data_loader = DataLoader_Siam(data_test, label_test)
 print('done')
 
-print(test_data_loader[1])
+#print(test_data_loader[1])
 
 #4 Trainer
 model_wt_path = wt_path + "model_"+run+ ".pt"
 learning_rate = 5e-5
-epochs = 1
+epochs = 100
 batch_size = 64
 weight_decay = 0
 
@@ -71,8 +71,8 @@ cnn_channel_1 = 320
 cnn_channel_2 = 480
 cnn_channel_3 = 960
 cnn_channel_4 = 1024
-max_kernel = 4
-max_stride = 4
+max_kernel = 2
+max_stride = 2
 linear = 925
 drop = 0.5
 
